@@ -1,0 +1,13 @@
+header {
+    background-color: lightblue;
+    padding: 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav li {
+    margin: 0 10px;
+}
