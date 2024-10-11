@@ -1,0 +1,37 @@
+
+header h1.fuente_titulo {
+    font-size: 30px;
+}
+header {
+    background-color: #5D9CEC;
+    padding: 10px;
+    font-family: 'calibri';
+    font-weight: bold;
+    font-size: 20px;
+    color: white; 
+}
+
+header a {
+    color: white; 
+    text-decoration: none;
+}
+/*----------------------------------------------------------------------------------------------------------  */
+
+.container > nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+
+.nav_links ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+}
+
+.nav_links ul li{
+    margin-left: 200px; 
+} 
