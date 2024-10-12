@@ -35,3 +35,27 @@ header a {
 .nav_links ul li{
     margin-left: 200px; 
 } 
+
+
+/*Main---------------------------------------------------*/
+
+
+#titulo1_id{
+    font-family: 'calibri';
+    font-weight: bold;
+    font-size: 50px;
+    color: black; 
+    padding: 0px;
+}
+
+.titulo1_class > h1{
+    display: flex;
+    justify-content: space-around;
+    margin: 50px 0 0 0;
+
+}
+.titulo_underline{
+    width: 50%; 
+    margin: 8px auto;
+    border: 1px solid gray;
+}
