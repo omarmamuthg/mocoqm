@@ -1,0 +1,34 @@
+.nav_inicio {
+    display: flex;
+    justify-content: left;
+    padding: 0;
+    align-items: center;
+    background-color: rgb(91, 146, 208);
+    padding: 10px;
+    font-family: 'Calibri';
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+}
+
+.nav_links ul {
+    display: flex;             
+    justify-content: right;  
+    align-items: center;        
+    padding: 0;
+    list-style: none;
+    margin: 0; 
+}
+
+.nav_links ul li {
+    margin-left: 20px; 
+}
+
+.nav_links a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav_links a:hover {
+    color: black;
+}
