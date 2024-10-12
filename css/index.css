@@ -15,6 +15,10 @@ header a {
     color: white; 
     text-decoration: none;
 }
+
+.nav_links a:hover {
+    color: black;
+}
 /*----------------------------------------------------------------------------------------------------------  */
 
 .container > nav{
@@ -58,4 +62,43 @@ header a {
     width: 50%; 
     margin: 8px auto;
     border: 1px solid gray;
+}
+
+/*empieza el texto imagen --------------------------------------------------------------------------------------------------------------*/
+
+p {
+    font-family: 'Calibri', sans-serif;
+    font-size: 20px;
+    text-align: justify;
+}
+h2{
+    font-family: 'Calibri', sans-serif;
+    font-size: 20px;
+}
+ul {
+    font-family: 'Calibri', sans-serif;
+    font-size: 20px;
+    text-align: justify;
+}
+
+
+.texto_imagen_container {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.columna {
+    flex: 1; /* Cada columna ocupará un espacio igual */
+    padding: 10px; /* Espaciado interno opcional */
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+    max-width: 50%; /* Limita el ancho de cada columna al 50% */
+}
+
+.columna img {
+    width: 100%; /* O un valor específico como 300px; ajusta según necesites */
+    height: auto; /* Mantiene la relación de aspecto */
+    max-width: 600px; /* Ajusta el tamaño máximo de la imagen, si es necesario */
+    display: block; /* Necesario para aplicar margin auto */
+    margin: 0 auto; /* Centra la imagen horizontalmente */
 }
