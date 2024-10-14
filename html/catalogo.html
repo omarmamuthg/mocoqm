@@ -5,18 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catalogo de Productos!</title>
     <link rel="stylesheet" href="..\css\catalogo.css">
+    <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
     <header>
         <div class="logo">
             </div>
-        <nav>
-            <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">¿Quiénes somos?</a></li>
-                <li><a href="#">Ubicación</a></li>
-            </ul>
-        </nav>
+            <nav class="nav_inicio" role="navigation" aria-label="Menú principal">
+                <div class="nombre_pagina">
+                    <h1 class ="fuente_titulo">mocoQM</h1>
+                </div>
+                <div class="nav_links"> 
+                    <ul>
+                        <li><a href="index.html">Quiénes somos?</a></li>
+                        <li><a href="catalogo.html">Catálogo</a></li>
+                        <li><a href="ubicacion.html">Ubicación</a></li>
+                    </ul>
+                </div>
+            </nav>
         <div class="carrito">
             <p>Subtotal</p>
             <p>Envío</p>
@@ -42,14 +48,28 @@
     </main>
 
     <footer>
-        <div class="redes-sociales">
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-facebook"></i></a>
+        <section class="container_footer">
+            <div class="footer_div_container">
+                <h3><strong>Siguenos en nuestras redes sociales:</strong></h3>
+                <hr>
+                <ul class="redes_sociales">
+                    <a class ="fb" href="https://www.facebook.com/"><img src="../imagenes/Logo_de_Facebook.png" alt="Facebook"></a>
+                    <a class ="ig" href="https://www.instagram.com/"><img src="../imagenes/instagram_logo-removebg-preview.png" alt="Instagram"></a>
+                    <a class ="x" href="https://www.twitter.com/"><img src="../imagenes/twitter-removebg-preview.png" alt="Twitter"></a>
+                </ul>
             </div>
-        <div class="contacto">
-            <p>¿Tienes alguna duda?</p>
-            <p>XXXXXXXXXXX</p>
-        </div>
+            <div class="footer_div_container">
+                <h3><strong>¿Tienes alguna duda?</strong></h3>
+                <hr>
+                <div id="wpp_container">
+                    <img class ="wpp" src="../imagenes/png-clipart-whats-app-logo-whatsapp-logo-whatsapp-cdr-leaf-thumbnail-removebg-preview.png" alt="logo wa">
+                    <p id = "telefono">8130820410</p>
+                </div>
+            </div>
+        </section>
+        <section class="container_copyright">
+            <p id="letras_copyright">2021 mocoQM. Todos los derechos reservados.</p>
+        </section>
     </footer>
 </body>
 </html>

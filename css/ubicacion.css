@@ -1,34 +1,44 @@
-.nav_inicio {
-    display: flex;
-    justify-content: left;
-    padding: 0;
-    align-items: center;
-    background-color: #5D9CEC;
-    padding: 10px;
-    font-family: 'Calibri';
+
+/*----------------------------------------------------------------------------------------------------------  */
+
+h2{
+    font-family: 'Calibri', sans-serif;
+    font-size: 30px;
     font-weight: bold;
-    font-size: 20px;
-    color: white;
+
 }
+
+p{
+    font-family: 'Calibri', sans-serif;
+    font-size: 20px;
+}
+
+
+
+/*----------------------------------------------------------------------------------------------------------  */
+
+.container > nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
 
 .nav_links ul {
-    display: flex;             
-    justify-content: right;  
-    align-items: center;        
-    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     list-style: none;
-    margin: 0; 
 }
 
-.nav_links ul li {
-    margin-left: 20px; 
-}
+.nav_links ul li{
+    margin-left: 200px; 
+} 
 
-.nav_links a {
-    color: white;
-    text-decoration: none;
-}
-
-.nav_links a:hover {
-    color: black;
+/*MAIN*/
+main{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 50px;
 }

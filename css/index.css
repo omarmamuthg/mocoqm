@@ -122,15 +122,24 @@ footer {
     padding: 10px 0;
 }
 
-/*Tamaño imagenes footer*/
+/*Tamaño imagenes*/
+.fb img {
+    width: 60px;  
+    height: auto; 
+}
 
-.redes_sociales a img {
+
+.ig img{
+    width: 60px; 
+    height: auto;
+}
+.x img {
     width: 70px; 
     height: auto;
 }
 
-div > img {
-    width: 80px;
+.wpp{
+    width: 70px;
     height: auto;
 }
 
@@ -167,6 +176,7 @@ div > img {
 #wpp_container{
     display: flex;
     justify-self: center;
+    gap: 30px;
 }
 
 #telefono{
@@ -179,6 +189,7 @@ div > img {
     color: white;
     font-family: 'Calibri';
     text-align: center;
+    font-size: 15px;
 }
 
 

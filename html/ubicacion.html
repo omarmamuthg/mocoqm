@@ -5,19 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../imagenes/9a8dd106-887a-44cf-a9aa-a258b2accd94.jpg">
     <link rel="stylesheet" href="../css/ubicacion.css">
+    <link rel="stylesheet" href="../css/index.css">
     <title>Ubícanos!</title>
 </head>
 <body>
-    <header>
+    <header class="container">
         <nav class="nav_inicio" role="navigation" aria-label="Menú principal">
             <div class="nombre_pagina">
-                <h1>mocoQM</h1>
+                <h1 class ="fuente_titulo">mocoQM</h1>
             </div>
             <div class="nav_links"> 
                 <ul>
                     <li><a href="index.html">Quiénes somos?</a></li>
                     <li><a href="catalogo.html">Catálogo</a></li>
                     <li><a href="ubicacion.html">Ubicación</a></li>
+                </ul>
             </div>
         </nav>
     </header>
@@ -30,24 +32,28 @@
         </section>
     </main>
     <footer>
-            <section class="container">
-                <div>
-                    <h3><strong>Siguenos en nuestras redes sociales:</strong></h3>
-                            <hr>
-                            <ul class="redes_sociales">
-                                <a href="https://www.facebook.com/"><img src="../imagenes/facebook_logo-removebg-preview.png" alt="Facebook"></a>
-                                <a href="https://www.instagram.com/"><img src="../imagenes/instagram_logo-removebg-preview.png" alt="Instagram"></a>
-                                <a href="https://www.twitter.com/"><img src="../imagenes/twitter-removebg-preview.png" alt="Twitter"></a>
-                            </ul>
+        <section class="container_footer">
+            <div class="footer_div_container">
+                <h3><strong>Siguenos en nuestras redes sociales:</strong></h3>
+                <hr>
+                <ul class="redes_sociales">
+                    <a class ="fb" href="https://www.facebook.com/"><img src="../imagenes/Logo_de_Facebook.png" alt="Facebook"></a>
+                    <a class ="ig" href="https://www.instagram.com/"><img src="../imagenes/instagram_logo-removebg-preview.png" alt="Instagram"></a>
+                    <a class ="x" href="https://www.twitter.com/"><img src="../imagenes/twitter-removebg-preview.png" alt="Twitter"></a>
+                </ul>
+            </div>
+            <div class="footer_div_container">
+                <h3><strong>¿Tienes alguna duda?</strong></h3>
+                <hr>
+                <div id="wpp_container">
+                    <img class ="wpp" src="../imagenes/png-clipart-whats-app-logo-whatsapp-logo-whatsapp-cdr-leaf-thumbnail-removebg-preview.png" alt="logo wa">
+                    <p id = "telefono">8130820410</p>
                 </div>
-                <div>
-                    <h3><strong>¿Tienes alguna duda?</strong></h3>
-                    <hr>
-                    <img src="../imagenes/png-clipart-whats-app-logo-whatsapp-logo-whatsapp-cdr-leaf-thumbnail-removebg-preview.png" alt="logo wa">
-                    <p>8130820410</p>
-                </div>
-                    <p>2021 mocoQM. Todos los derechos reservados.</p>
-            </section>
+            </div>
+        </section>
+        <section class="container_copyright">
+            <p id="letras_copyright">2021 mocoQM. Todos los derechos reservados.</p>
+        </section>
     </footer>
 </body>
 </html>
