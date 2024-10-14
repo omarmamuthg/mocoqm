@@ -101,4 +101,5 @@ ul {
     max-width: 600px; /* Ajusta el tamaño máximo de la imagen, si es necesario */
     display: block; /* Necesario para aplicar margin auto */
     margin: 0 auto; /* Centra la imagen horizontalmente */
+    border: rgb(230, 224, 224) solid;
 }
