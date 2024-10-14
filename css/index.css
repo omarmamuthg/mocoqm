@@ -1,4 +1,9 @@
 
+/*main*/
+main{
+    margin: 40px;
+}
+
 header h1.fuente_titulo {
     font-size: 30px;
 }
@@ -75,6 +80,13 @@ h2{
     font-family: 'Calibri', sans-serif;
     font-size: 20px;
 }
+
+h3{
+    color: white;
+    font-family: 'Calibri', sans-serif;
+    font-size: 40px;
+}
+
 ul {
     font-family: 'Calibri', sans-serif;
     font-size: 20px;
@@ -89,17 +101,84 @@ ul {
 }
 
 .columna {
-    flex: 1; /* Cada columna ocupará un espacio igual */
-    padding: 10px; /* Espaciado interno opcional */
-    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
-    max-width: 50%; /* Limita el ancho de cada columna al 50% */
+    flex: 1;
+    padding: 10px;
+    box-sizing: border-box;
+    max-width: 50%;
 }
 
 .columna img {
-    width: 100%; /* O un valor específico como 300px; ajusta según necesites */
-    height: auto; /* Mantiene la relación de aspecto */
-    max-width: 600px; /* Ajusta el tamaño máximo de la imagen, si es necesario */
-    display: block; /* Necesario para aplicar margin auto */
-    margin: 0 auto; /* Centra la imagen horizontalmente */
+    width: 100%; 
+    height: auto;
+    max-width: 600px;
+    display: block; 
+    margin: 0 auto; 
     border: rgb(230, 224, 224) solid;
 }
+
+/*footer----------------------*/
+footer {
+    background-color: rgb(149, 140, 140);
+    padding: 10px 0;
+}
+
+/*Tamaño imagenes footer*/
+
+.redes_sociales a img {
+    width: 70px; 
+    height: auto;
+}
+
+div > img {
+    width: 80px;
+    height: auto;
+}
+
+
+
+
+/*acomodo del footer*/
+
+.container_footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 8px;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+.footer_div_container {
+    flex: 1; 
+    padding: 8px;
+    margin: 0 8px;
+    box-sizing: border-box;
+}
+
+
+/*copyright*/
+#container_copyright {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#wpp_container{
+    display: flex;
+    justify-self: center;
+}
+
+#telefono{
+    color: white;
+    font-family: 'Calibri';
+    font-size: 30px;
+}
+
+#letras_copyright{
+    color: white;
+    font-family: 'Calibri';
+    text-align: center;
+}
+
+
