@@ -2,13 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../imagenes/9a8dd106-887a-44cf-a9aa-a258b2accd94.jpg">
-    <link rel="stylesheet" href="../css/ubicacion.css">
-    <link rel="stylesheet" href="../css/index.css">
-    <title>Ubícanos!</title>
+    <meta name="viewpor t" content="width=device-width, initial-scale=1.0">
+    <title>Mocoqm Store</title>
+   <link class= "icono_redondo" rel="icon" href="../imagenes/9a8dd106-887a-44cf-a9aa-a258b2accd94.jpg" type="image/x-icon">
+   <link rel="stylesheet" href="../css/ubicacion.css">
+   <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
+    <div class="video-container">
+        <video class="video-background" autoplay muted loop>
+            <source src="../imagenes/6916531_Motion Graphics_Motion Graphic_3840x2160.mp4" type="video/mp4">
+            Tu navegador no soporta la etiqueta de video.
+        </video>
+    </div>
     <header class="container">
         <nav class="nav_inicio" role="navigation" aria-label="Menú principal">
             <div class="nombre_pagina">
@@ -16,7 +22,7 @@
             </div>
             <div class="nav_links"> 
                 <ul>
-                    <li><a href="index.html">Quiénes somos?</a></li>
+                    <li><a href="index.html">¿Quiénes somos?</a></li>
                     <li><a href="catalogo.html">Catálogo</a></li>
                     <li><a href="ubicacion.html">Ubicación</a></li>
                 </ul>
@@ -24,23 +30,38 @@
         </nav>
     </header>
     <main>
-        <section class="ubicacion">
-            <h2>Ubícanos!</h2>
-            <p>Estamos ubicados en la ciudad de Monterrey, en la dirección: Calle 145 # 145-45.</p>
-            <p>Si tienes alguna duda, puedes comunicarte con nosotros al número:1234567890.</p>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4797.870645708983!2d-100.30959634567115!3d25.726210625866603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x866295094da26085%3A0x7262d01b7781d627!2sFACPYA%20Facultad%20de%20Contadur%C3%ADa%20P%C3%BAblica%20y%20Administraci%C3%B3n!5e0!3m2!1sen!2smx!4v1728609668780!5m2!1sen!2smx" width="600" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </section>
+        <article>
+            <section>
+                <div class="titulo1_class">
+                    <h1 id="titulo1_id"><strong>Ubícanos</strong></h1>
+                    <hr class="titulo_underline">
+                </div>
+            </section>
+            <div class = "article">
+                <section class="container_ubicacion">
+                    <div class="ubicacion">
+                        <p>Estamos ubicados en la ciudad de Monterrey, en la dirección: Calle 145 # 145-45.</p>
+                        <p>Si tienes alguna duda, puedes comunicarte con nosotros al número: 8130820410.</p>
+                    </div>
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4797.870645708983!2d-100.30959634567115!3d25.726210625866603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x866295094da26085%3A0x7262d01b7781d627!2sFACPYA%20Facultad%20de%20Contadur%C3%ADa%20P%C3%BAblica%20y%20Administraci%C3%B3n!5e0!3m2!1sen!2smx!4v1728609668780!5m2!1sen!2smx" 
+                            width="600" height="500" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </section>
+            </div>
+        </article>
     </main>
+    
     <footer>
         <section class="container_footer">
             <div class="footer_div_container">
                 <h3><strong>Siguenos en nuestras redes sociales:</strong></h3>
                 <hr>
                 <ul class="redes_sociales">
-                    <a class ="fb" href="https://www.facebook.com/"><img src="../imagenes/Logo_de_Facebook.png" alt="Facebook"></a>
-                    <a class ="ig" href="https://www.instagram.com/"><img src="../imagenes/instagram_logo-removebg-preview.png" alt="Instagram"></a>
-                    <a class ="x" href="https://www.twitter.com/"><img src="../imagenes/twitter-removebg-preview.png" alt="Twitter"></a>
-                </ul>
+                    <a class ="fb" href="https://www.facebook.com/" target="_blank"><img src="../imagenes/nuevo_fb.webp" alt="Facebook"></a>
+                    <a class ="ig" href="https://www.instagram.com/" target="_blank"><img src="../imagenes/ig_nuevo.png" alt="Instagram"></a>
+                    <a class ="x" href="https://www.twitter.com/" target="_blank"><img src="../imagenes/imagen_2024-10-18_102523827-removebg-preview_2.png" alt="Twitter"></a>
             </div>
             <div class="footer_div_container">
                 <h3><strong>¿Tienes alguna duda?</strong></h3>
