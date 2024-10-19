@@ -4,11 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewpor t" content="width=device-width, initial-scale=1.0">
     <title>Mocoqm Store</title>
-    <link rel="icon" href="../imagenes/9a8dd106-887a-44cf-a9aa-a258b2accd94.jpg" type="image/x-icon">
+   <link class= "icono_redondo" rel="icon" href="../imagenes/9a8dd106-887a-44cf-a9aa-a258b2accd94.jpg" type="image/x-icon">
     <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
-
+    <div class="video-container">
+        <video class="video-background" autoplay muted loop>
+            <source src="../imagenes/6916531_Motion Graphics_Motion Graphic_3840x2160.mp4" type="video/mp4">
+            Tu navegador no soporta la etiqueta de video.
+        </video>
+    </div>
     <header class="container">
         <nav class="nav_inicio" role="navigation" aria-label="Menú principal">
             <div class="nombre_pagina">
@@ -16,14 +21,13 @@
             </div>
             <div class="nav_links"> 
                 <ul>
-                    <li><a href="index.html">Quiénes somos?</a></li>
+                    <li><a href="index.html">¿Quiénes somos?</a></li>
                     <li><a href="catalogo.html">Catálogo</a></li>
                     <li><a href="ubicacion.html">Ubicación</a></li>
                 </ul>
             </div>
         </nav>
     </header>
-
     <main>
         <article>
             <section>
@@ -32,10 +36,6 @@
                     <hr class ="titulo_underline">
                 </div>
             </section>
-
-
-
-
             <section class="texto_imagen_container">
                 <div class = "columna">
                     <p>
@@ -47,7 +47,7 @@
                     <p>
                         Nuestro principal objetivo es transformar la experiencia de compra de artículos tecnológicos en algo rápido, cómodo y emocionante. En mocoQM, nos comprometemos a:
                     </p>
-                    <ul>
+                    <ul class=" objetivos">
                         <li>Ofrecer productos de calidad que sean funcionales y duraderos.</li>
                         <li>Brindar un excelente servicio al cliente que garantice la satisfacción de nuestros usuarios.</li>
                         <li>Mantenernos actualizados con las últimas tendencias tecnológicas para que siempre encuentres en nuestra tienda los dispositivos más novedosos del mercado.</li>
@@ -60,7 +60,7 @@
             </section>
 
 
-            <section>
+            <section class="texto_imagen_container">
                 <div>
                     <p>
                         Nuestro compromiso en <strong class="color_negro" >Objetivo</strong> es ofrecerte productos de la más alta calidad, siempre enfocados en superar tus expectativas y ajustados a tus necesidades. Nos esforzamos constantemente por mantener precios competitivos, entendiendo que un buen valor no solo radica en la tecnología que adquieres, sino también en la inversión que realizas.
@@ -81,10 +81,9 @@
                 <h3><strong>Siguenos en nuestras redes sociales:</strong></h3>
                 <hr>
                 <ul class="redes_sociales">
-                    <a class ="fb" href="https://www.facebook.com/"><img src="../imagenes/Logo_de_Facebook.png" alt="Facebook"></a>
-                    <a class ="ig" href="https://www.instagram.com/"><img src="../imagenes/instagram_logo-removebg-preview.png" alt="Instagram"></a>
-                    <a class ="x" href="https://www.twitter.com/"><img src="../imagenes/twitter-removebg-preview.png" alt="Twitter"></a>
-                </ul>
+                    <a class ="fb" href="https://www.facebook.com/" target="_blank"><img src="../imagenes/nuevo_fb.webp" alt="Facebook"></a>
+                    <a class ="ig" href="https://www.instagram.com/" target="_blank"><img src="../imagenes/ig_nuevo.png" alt="Instagram"></a>
+                    <a class ="x" href="https://www.twitter.com/" target="_blank"><img src="../imagenes/imagen_2024-10-18_102523827-removebg-preview_2.png" alt="Twitter"></a>
             </div>
             <div class="footer_div_container">
                 <h3><strong>¿Tienes alguna duda?</strong></h3>
@@ -97,6 +96,7 @@
         </section>
         <section class="container_copyright">
             <p id="letras_copyright">2021 mocoQM. Todos los derechos reservados.</p>
+            <p>Test</p>
         </section>
     </footer>
 
