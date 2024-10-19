@@ -1,15 +1,96 @@
-header {
-    background-color: lightblue;
-    padding: 20px;
+/* Ajuste de tamaño de la imagen */
+.producto_catalogo {
+    width: 200px;
+    height: auto; 
+    max-width: 300px; 
+    border-radius: 20%;
+    margin-bottom: 10px;
 }
 
-nav ul {
-    list-style: none;
+.producto_info {
     display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    height: 100%; 
+    flex: 1;
+    padding-right: 20px;
 }
 
-nav li {
-    margin: 0 10px;
+
+.container_producto {
+    display: flex;
+    justify-content: start;
+    align-items: flex-start; 
+    padding: 20px; 
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.container_desc_btn {
+    flex: 2; 
+    display: flex;
+    flex-direction: column; 
+}
+
+.btn {
+    margin: 10px auto; 
+    padding: 10px 20px; 
+    border-radius: 15px; 
+    display: block; 
+}
+
+
+.producto_catalogo {
+    max-width: 100%; 
+    height: auto; 
+}
+
+.descripcion_producto, .precio {
+    margin: 5px 0;
+}
+
+.descripcion_detallada {
+    margin-bottom: 15px; 
+}
+
+
+.btn {
+    border-radius: 10px; 
+    margin-top: 5px; 
+    background-color: rgb(255, 255, 0); 
+    color: black; 
+    border: none; 
+    padding: 5px;
+    font-size: 14px;
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+    width: 130px;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: gold;
+}
+
+
+
+
+h2{
+    font-family: 'Calibri', sans-serif;
+    font-weight: bold;
+    color: black;
+}
+
+p{
+    font-family: 'Calibri', sans-serif;
+    font-size: 20px;
+    color: white;
+}
+
+.precio {
+    color :rgb(243, 34, 34);
 }
 
 
