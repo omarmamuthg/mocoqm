@@ -1,39 +1,36 @@
-
-/*main*/
-main{
-    margin: 40px;
-}
-
+/* Header */
 header h1.fuente_titulo {
     font-size: 30px;
 }
-header {
-    background-color: #5D9CEC;
+
+header{
+    background-color: rgba(111, 163, 239, 0.7); 
     padding: 10px;
-    font-family: 'calibri';
+    font-family: 'Calibri', sans-serif;
     font-weight: bold;
     font-size: 20px;
-    color: white; 
+    color: rgb(0, 0, 0);
+    border-radius: 15px;
 }
 
 header a {
-    color: white; 
+    color: rgb(0, 0, 0);
     text-decoration: none;
 }
 
+/* Estilo para hover en los enlaces del menú */
 .nav_links a:hover {
-    color: black;
+    color: #fff; 
 }
-/*----------------------------------------------------------------------------------------------------------  */
 
-.container > nav{
+/* Contenedor del menú de navegación */
+.container > nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-
-
+/* Navegación */
 .nav_links ul {
     display: flex;
     justify-content: space-around;
@@ -41,113 +38,139 @@ header a {
     list-style: none;
 }
 
-.nav_links ul li{
-    margin-left: 200px; 
-} 
+/* Espacio entre los elementos del menú */
+.nav_links ul li {
+    margin-left: 200px;
+}
 
-
-/*Main---------------------------------------------------*/
-
-
-#titulo1_id{
-    font-family: 'calibri';
+/* Estilo del título principal */
+#titulo1_id {
+    font-family: 'Calibri', sans-serif;
     font-weight: bold;
     font-size: 50px;
-    color: black; 
-    padding: 0px;
+    color: black;
+    padding: 0;
 }
 
-.titulo1_class > h1{
+.titulo1_class > h1 {
     display: flex;
     justify-content: space-around;
-    margin: 50px 0 0 0;
-
+    margin: 20px 0 0;
 }
-.titulo_underline{
-    width: 50%; 
+
+/* Subrayado decorativo debajo del título */
+.titulo_underline {
+    width: 50%;
     margin: 8px auto;
-    border: 1px solid gray;
+    border: 1px solid green;
 }
 
-/*empieza el texto imagen --------------------------------------------------------------------------------------------------------------*/
-
+/* Texto y párrafos */
 p {
     font-family: 'Calibri', sans-serif;
     font-size: 20px;
     text-align: justify;
 }
-h2{
+
+h2 {
     font-family: 'Calibri', sans-serif;
     font-size: 20px;
 }
 
-h3{
-    color: white;
+h3 {
+    color: rgb(0, 0, 0);
     font-family: 'Calibri', sans-serif;
     font-size: 40px;
 }
 
-ul {
+/* Listas */
+.objetivos > li {
     font-family: 'Calibri', sans-serif;
     font-size: 20px;
     text-align: justify;
 }
 
-
+/* Contenedor de la sección texto e imagen */
 .texto_imagen_container {
     display: flex;
     justify-content: space-between;
-    
 }
 
+/* Columnas de la sección */
 .columna {
     flex: 1;
     padding: 10px;
     box-sizing: border-box;
     max-width: 50%;
+    
 }
+.texto_imagen_container {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    margin-bottom: 20px;
+}
+
 
 .columna img {
-    width: 100%; 
+    width: 100%;
     height: auto;
     max-width: 600px;
-    display: block; 
-    margin: 0 auto; 
-    border: rgb(230, 224, 224) solid;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid rgb(230, 224, 224);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 15px; 
 }
 
-/*footer----------------------*/
+
+/* Video de fondo */
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;    
+    overflow: hidden;
+}
+
+.video-background {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* Footer */
 footer {
-    background-color: rgb(149, 140, 140);
+    background-color: rgba(0, 0, 0, 0.7);
     padding: 10px 0;
+    border-radius: 15px;
 }
 
-/*Tamaño imagenes*/
-.fb img {
-    width: 60px;  
-    height: auto; 
+/* Tamaño de imágenes de las redes sociales */
+.fb img,
+.ig img,
+.x img,
+.wpp {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
 }
 
-
-.ig img{
-    width: 60px; 
-    height: auto;
-}
-.x img {
-    width: 70px; 
-    height: auto;
+.fb img:hover,
+.ig img:hover,
+.x img:hover,
+.wpp:hover {
+    transform: scale(1.5); /* Aumenta el tamaño al pasar el cursor */
 }
 
-.wpp{
-    width: 70px;
-    height: auto;
-}
-
-
-
-
-/*acomodo del footer*/
-
+/* Footer layout */
 .container_footer {
     display: flex;
     justify-content: space-between;
@@ -158,38 +181,39 @@ footer {
 }
 
 .footer_div_container {
-    flex: 1; 
+    flex: 1;
     padding: 8px;
     margin: 0 8px;
     box-sizing: border-box;
 }
 
-
-/*copyright*/
+/* Estilo del copyright */
 #container_copyright {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-
-#wpp_container{
+/* WhatsApp container */
+#wpp_container {
     display: flex;
-    justify-self: center;
+    justify-content: start;
+    align-items: center;
     gap: 30px;
 }
 
-#telefono{
-    color: white;
-    font-family: 'Calibri';
+
+/* Teléfono */
+#telefono {
+    color: rgb(0, 0, 0);
+    font-family: 'Calibri', sans-serif;
     font-size: 30px;
 }
 
-#letras_copyright{
-    color: white;
-    font-family: 'Calibri';
+/* Texto del copyright */
+#letras_copyright {
+    color: rgb(0, 0, 0);
+    font-family: 'Calibri', sans-serif;
     text-align: center;
     font-size: 15px;
 }
-
-
