@@ -4,47 +4,207 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catalogo de Productos!</title>
-    <link rel="stylesheet" href="..\css\catalogo.css">
+    <link rel="icon" href="../imagenes/9a8dd106-887a-44cf-a9aa-a258b2accd94.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="../css/catalogo.css">
     <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
-    <header>
-        <div class="logo">
+    <div class="video-container">
+        <video class="video-background" autoplay muted loop>
+            <source src="../imagenes/6916531_Motion Graphics_Motion Graphic_3840x2160.mp4" type="video/mp4">
+            Tu navegador no soporta la etiqueta de video.
+        </video>
+    </div>
+    <header class="container">
+        <nav class="nav_inicio" role="navigation" aria-label="Menú principal">
+            <div class="nombre_pagina">
+                <h1 class ="fuente_titulo">mocoQM</h1>
             </div>
-            <nav class="nav_inicio" role="navigation" aria-label="Menú principal">
-                <div class="nombre_pagina">
-                    <h1 class ="fuente_titulo">mocoQM</h1>
-                </div>
-                <div class="nav_links"> 
-                    <ul>
-                        <li><a href="index.html">Quiénes somos?</a></li>
-                        <li><a href="catalogo.html">Catálogo</a></li>
-                        <li><a href="ubicacion.html">Ubicación</a></li>
-                    </ul>
-                </div>
-            </nav>
-        <div class="carrito">
-            <p>Subtotal</p>
-            <p>Envío</p>
-            <p>Total</p>
-            <button>Realizar Pedido</button>
-        </div>
+            <div class="nav_links"> 
+                <ul>
+                    <li><a href="index.html">¿Quiénes somos?</a></li>
+                    <li><a href="catalogo.html">Catálogo</a></li>
+                    <li><a href="ubicacion.html">Ubicación</a></li>
+                </ul>
+            </div>
+        </nav>
     </header>
-
     <main>
-        <h2>Nuestro Catálogo</h2>
-        <div class="productos">
-            <div class="producto">
-                <img src="producto1.jpg" alt="Producto 1">
-                <p>Descripción de Artículo</p>
-                <p>Precio</p>
-            </div>
-            <div class="producto">
-                <img src="producto2.jpg" alt="Producto 2">
-                <p>Descripción de Artículo</p>
-                <p>Precio</p>
-            </div>
-        </div>
+        <article>
+            <section>
+                <div class="titulo1_class">
+                    <h1 id="titulo1_id">Catalago</h1>
+                    <hr class ="titulo_underline">
+                </div>
+            </section>
+
+            <section class="container_producto">
+                <div class="producto_info">
+                    <img class="producto_catalogo" src="../imagenes/productos/laptop.avif" alt="Laptop de alta gama para uso profesional">
+                    <p class="precio">$10</p>
+                </div>
+                <div class="container_desc_btn">
+                    <h2 class="descripcion_producto">Laptop de alta gama para uso profesional</h2>
+                    
+                    <p class="descripcion_detallada">
+                        Esta laptop es ideal para profesionales que requieren un alto rendimiento en tareas exigentes. 
+                        Equipado con un procesador potente, memoria RAM ampliada y una tarjeta gráfica de última generación, 
+                        permite realizar trabajos de diseño gráfico, edición de video y programación sin inconvenientes.
+                        Su diseño elegante y ligero la convierte en la opción perfecta para llevar a cualquier lugar.
+                    </p>
+                    <button class="btn">Agregar al carrito</button>
+                    <button class="btn">Comprar ahora</button>
+                </div>
+            </section>         
+            
+            <section class="container_producto">
+                <div class="producto_info">
+                    <img class="producto_catalogo" src="../imagenes/productos/smartphone.jpg" alt="Celular de alta gama">
+                    <p class="precio">$5</p>
+                </div>
+                <div class="container_desc_btn">
+                    <h2 class="descripcion_producto">Celular iPhone</h2>
+                    <p class="descripcion_detallada">
+                        Este smartphone ofrece una experiencia de usuario excepcional, con un sistema operativo fluido 
+                        y una cámara de alta calidad. Su diseño moderno y su rendimiento ágil lo convierten en una opción 
+                        perfecta para aquellos que buscan un dispositivo fiable y elegante.
+                    </p>
+                    <button class="btn">Agregar al carrito</button>
+                    <button class="btn">Comprar ahora</button>
+                </div>
+            </section>
+            
+            <section class="container_producto">
+                <div class="producto_info">
+                    <img class="producto_catalogo" src="../imagenes/productos/tablet.jpg" alt="Tablet de alta gama">
+                    <p class="precio">$8</p>
+                </div>
+                <div class="container_desc_btn">
+                    <h2 class="descripcion_producto">Tablet</h2>
+                    <p class="descripcion_detallada">
+                        Esta tablet es perfecta para entretenimiento y trabajo. Con su pantalla de alta resolución, 
+                        podrás disfrutar de tus series y películas favoritas, así como realizar tareas de productividad 
+                        de manera cómoda y eficiente.
+                    </p>
+                    <button class="btn">Agregar al carrito</button>
+                    <button class="btn">Comprar ahora</button>
+                </div>
+            </section>
+            
+            <section class="container_producto">
+                <div class="producto_info">
+                    <img class="producto_catalogo" src="../imagenes/productos/smartwatch.jpg" alt="Smartwatch alta gama">
+                    <p class="precio">$4</p>
+                </div>
+                <div class="container_desc_btn">
+                    <h2 class="descripcion_producto">Smartwatch</h2>
+                    <p class="descripcion_detallada">
+                        Este smartwatch te permite llevar un seguimiento de tu actividad física y recibir notificaciones en 
+                        tiempo real. Con su diseño elegante y funcionalidad avanzada, es el complemento perfecto para un estilo de vida activo.
+                    </p>
+                    <button class="btn">Agregar al carrito</button>
+                    <button class="btn">Comprar ahora</button>
+                </div>
+            </section>
+            
+            <section class="container_producto">
+                <div class="producto_info">
+                    <img class="producto_catalogo" src="../imagenes/productos/auriculares.jpg" alt="Auriculares alta gama">
+                    <p class="precio">$6</p>
+                </div>
+                <div class="container_desc_btn">
+                    <h2 class="descripcion_producto">Auriculares Bluetooth</h2>
+                    <p class="descripcion_detallada">
+                        Disfruta de tu música favorita con estos auriculares Bluetooth de alta calidad. Con sonido envolvente 
+                        y comodidad, son ideales para usar durante todo el día.
+                    </p>
+                    <button class="btn">Agregar al carrito</button>
+                    <button class="btn">Comprar ahora</button>
+                </div>
+            </section>
+            
+            <section class="container_producto">
+                <div class="producto_info">
+                    <img class="producto_catalogo" src="../imagenes/productos/teclado.jpg" alt="Teclado alta gama">
+                    <p class="precio">$8</p>
+                </div>
+                <div class="container_desc_btn">
+                    <h2 class="descripcion_producto">Teclado mecánico</h2>
+                    <p class="descripcion_detallada">
+                        Este teclado mecánico ofrece una experiencia de escritura superior, ideal para gamers y profesionales. 
+                        Con retroiluminación personalizable y teclas duraderas, es una excelente opción para tu configuración.
+                    </p>
+                    <button class="btn">Agregar al carrito</button>
+                    <button class="btn">Comprar ahora</button>
+                </div>
+            </section>
+            
+            <section class="container_producto">
+                <div class="producto_info">
+                    <img class="producto_catalogo" src="../imagenes/productos/monitor.jpg" alt="Monitor alta gama">
+                    <p class="precio">$15</p>
+                </div>
+                <div class="container_desc_btn">
+                    <h2 class="descripcion_producto">Monitor 4K</h2>
+                    <p class="descripcion_detallada">
+                        Este monitor 4K proporciona una calidad de imagen excepcional. Perfecto para edición de video y 
+                        juegos, su amplia gama de colores y resolución nítida mejorarán tu experiencia visual.
+                    </p>
+                    <button class="btn">Agregar al carrito</button>
+                    <button class="btn">Comprar ahora</button>
+                </div>
+            </section>
+            
+            <section class="container_producto">
+                <div class="producto_info">
+                    <img class="producto_catalogo" src="../imagenes/productos/camara_web.jpg" alt="Cámara alta gama">
+                    <p class="precio">$4</p>
+                </div>
+                <div class="container_desc_btn">
+                    <h2 class="descripcion_producto">Cámara Web HD</h2>
+                    <p class="descripcion_detallada">
+                        La cámara web HD es perfecta para videollamadas y streaming. Con calidad de imagen clara y fácil de instalar, 
+                        es ideal para el trabajo desde casa.
+                    </p>
+                    <button class="btn">Agregar al carrito</button>
+                    <button class="btn">Comprar ahora</button>
+                </div>
+            </section>
+            
+            <section class="container_producto">
+                <div class="producto_info">
+                    <img class="producto_catalogo" src="../imagenes/productos/cpu_gamer.jpg" alt="CPU alta gama">
+                    <p class="precio">$20</p>
+                </div>
+                <div class="container_desc_btn">
+                    <h2 class="descripcion_producto">CPU Gamer</h2>
+                    <p class="descripcion_detallada">
+                        Este CPU gamer está diseñado para un rendimiento extremo en juegos. Con hardware de última generación, 
+                        permite jugar a los títulos más exigentes con fluidez y calidad gráfica impresionante.
+                    </p>
+                    <button class="btn">Agregar al carrito</button>
+                    <button class="btn">Comprar ahora</button>
+                </div>
+            </section>
+            
+            <section class="container_producto">
+                <div class="producto_info">
+                    <img class="producto_catalogo" src="../imagenes/productos/mouse.jpg" alt="Mouse alta gama">
+                    <p class="precio">$7</p>
+                </div>
+                <div class="container_desc_btn">
+                    <h2 class="descripcion_producto">Mouse Gamer</h2>
+                    <p class="descripcion_detallada">
+                        Este mouse gamer cuenta con múltiples configuraciones de DPI y botones programables, lo que te 
+                        ofrece una ventaja competitiva en cualquier juego. Su diseño ergonómico asegura comodidad durante 
+                        largas sesiones de juego.
+                    </p>
+                    <button class="btn">Agregar al carrito</button>
+                    <button class="btn">Comprar ahora</button>
+                </div>
+            </section>           
+
+        </article>
     </main>
 
     <footer>
@@ -53,9 +213,9 @@
                 <h3><strong>Siguenos en nuestras redes sociales:</strong></h3>
                 <hr>
                 <ul class="redes_sociales">
-                    <a class ="fb" href="https://www.facebook.com/"><img src="../imagenes/Logo_de_Facebook.png" alt="Facebook"></a>
-                    <a class ="ig" href="https://www.instagram.com/"><img src="../imagenes/instagram_logo-removebg-preview.png" alt="Instagram"></a>
-                    <a class ="x" href="https://www.twitter.com/"><img src="../imagenes/twitter-removebg-preview.png" alt="Twitter"></a>
+                    <a class ="fb" href="https://www.facebook.com/" target="_blank"><img src="../imagenes/nuevo_fb.webp" alt="Facebook"></a>
+                    <a class ="ig" href="https://www.instagram.com/" target="_blank"><img src="../imagenes/ig_nuevo.png" alt="Instagram"></a>
+                    <a class ="x" href="https://www.twitter.com/" target="_blank"><img src="../imagenes/imagen_2024-10-18_102523827-removebg-preview_2.png" alt="Twitter"></a>
                 </ul>
             </div>
             <div class="footer_div_container">
