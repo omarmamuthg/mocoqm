@@ -1,6 +1,12 @@
 /* Header */
-header h1.fuente_titulo {
-    font-size: 30px;
+#img_logo {
+    width: 180px;
+    height: auto;
+    margin-left: 100px;
+}
+
+#img_logo:hover {
+    transform: scale(1.2); /* Aumenta el tamaño al pasar el cursor */
 }
 
 header{
@@ -78,7 +84,7 @@ h2 {
 }
 
 h3 {
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     font-family: 'Calibri', sans-serif;
     font-size: 40px;
 }
@@ -205,14 +211,14 @@ footer {
 
 /* Teléfono */
 #telefono {
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     font-family: 'Calibri', sans-serif;
     font-size: 30px;
 }
 
 /* Texto del copyright */
 #letras_copyright {
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     font-family: 'Calibri', sans-serif;
     text-align: center;
     font-size: 15px;

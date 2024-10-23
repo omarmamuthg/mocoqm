@@ -1,3 +1,9 @@
+/*imagenes*/
+.producto_catalogo:hover {
+    content: url('https://m.media-amazon.com/images/I/71xII7d0jlL._AC_SL1500_.jpg');
+  }
+
+
 /* Ajuste de tamaño de la imagen */
 .producto_catalogo {
     width: 200px;
