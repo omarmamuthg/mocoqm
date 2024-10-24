@@ -7,6 +7,7 @@
     <link rel="icon" href="../imagenes/9a8dd106-887a-44cf-a9aa-a258b2accd94.jpg" type="image/x-icon">
     <link rel="stylesheet" href="../css/catalogo.css">
     <link rel="stylesheet" href="../css/index.css">
+    <script type="text/javascript" src="../JS/carrito.js"></script>
 </head>
 <body>
     <div class="video-container">
@@ -31,10 +32,7 @@
     </header>
     <div class="container_carrito">
         <h5 class="carrito_title">Carrito</h5>
-        <ul class="lista_items">
-            <a>Producto 1</a>
-            <a>Producto 2</a>
-            <a>Producto 3</a    >
+        <ul id="carrito">
         </ul>
     </div>  
     <main>
@@ -48,7 +46,7 @@
 
             <section class="container_producto">
                 <div class="producto_info">
-                    <img class="producto_catalogo" src="../imagenes/productos/laptop.avif" alt="Laptop de alta gama para uso profesional">
+                    <img class="producto_catalogo" src="../imagenes/productos/laptop.avif" alt="Laptop de alta gama para uso profesional" data-id="1">
                     <p class="precio">$10</p>
                 </div>
                 <div class="container_desc_btn">
@@ -60,14 +58,14 @@
                         permite realizar trabajos de diseño gráfico, edición de video y programación sin inconvenientes.
                         Su diseño elegante y ligero la convierte en la opción perfecta para llevar a cualquier lugar.
                     </p>
-                    <button class="btn">Agregar al carrito</button>
+                    <button class="btn" data-id="1" data-nombre="Laptop" data-precio = "10">Agregar al carrito</button>
                     <button class="btn">Comprar ahora</button>
                 </div>
             </section>         
             
             <section class="container_producto">
                 <div class="producto_info">
-                    <img class="producto_catalogo" src="../imagenes/productos/smartphone.jpg" alt="Celular de alta gama">
+                    <img class="producto_catalogo" src="../imagenes/productos/smartphone.jpg" alt="Celular de alta gama" data-id="2">
                     <p class="precio">$5</p>
                 </div>
                 <div class="container_desc_btn">
@@ -77,31 +75,31 @@
                         y una cámara de alta calidad. Su diseño moderno y su rendimiento ágil lo convierten en una opción 
                         perfecta para aquellos que buscan un dispositivo fiable y elegante.
                     </p>
-                    <button class="btn">Agregar al carrito</button>
+                    <button class="btn" data-id="2" data-nombre="Celular" data-precio="5">Agregar al carrito</button>
                     <button class="btn">Comprar ahora</button>
                 </div>
             </section>
             
             <section class="container_producto">
                 <div class="producto_info">
-                    <img class="producto_catalogo" src="../imagenes/productos/tablet.jpg" alt="Tablet de alta gama">
+                    <img class="producto_catalogo" src="../imagenes/productos/tablet.jpg" alt="Tablet de alta gama" data-id="3">
                     <p class="precio">$8</p>
                 </div>
                 <div class="container_desc_btn">
                     <h2 class="descripcion_producto">Tablet</h2>
                     <p class="descripcion_detallada">
                         Esta tablet es perfecta para entretenimiento y trabajo. Con su pantalla de alta resolución, 
-                        podrás disfrutar de tus series y películas favoritas, así como realizar tareas de productividad 
+                        podrás disfrutar de tus series y películas favoritas, así como realizar tareas de productivclassad 
                         de manera cómoda y eficiente.
                     </p>
-                    <button class="btn">Agregar al carrito</button>
-                    <button class="btn">Comprar ahora</button>
+                    <button class ="btn" data-id="3" data-nombre="Tablet" data-precio="8">Agregar al carrito</button>
+                    <button class ="btn">Comprar ahora</button>
                 </div>
             </section>
             
             <section class="container_producto">
                 <div class="producto_info">
-                    <img class="producto_catalogo" src="../imagenes/productos/smartwatch.jpg" alt="Smartwatch alta gama">
+                    <img class="producto_catalogo" src="../imagenes/productos/smartwatch.jpg" alt="Smartwatch alta gama" data-id="4">
                     <p class="precio">$4</p>
                 </div>
                 <div class="container_desc_btn">
@@ -110,14 +108,14 @@
                         Este smartwatch te permite llevar un seguimiento de tu actividad física y recibir notificaciones en 
                         tiempo real. Con su diseño elegante y funcionalidad avanzada, es el complemento perfecto para un estilo de vida activo.
                     </p>
-                    <button class="btn">Agregar al carrito</button>
-                    <button class="btn">Comprar ahora</button>
+                    <button class ="btn" data-id="4" data-nombre="Smartwatch" data-precio="4">Agregar al carrito</button>
+                    <button class ="btn">Comprar ahora</button>
                 </div>
             </section>
             
             <section class="container_producto">
                 <div class="producto_info">
-                    <img class="producto_catalogo" src="../imagenes/productos/auriculares.jpg" alt="Auriculares alta gama">
+                    <img class="producto_catalogo" src="../imagenes/productos/auriculares.jpg" alt="Auriculares alta gama" data-id="5">
                     <p class="precio">$6</p>
                 </div>
                 <div class="container_desc_btn">
@@ -126,14 +124,14 @@
                         Disfruta de tu música favorita con estos auriculares Bluetooth de alta calidad. Con sonido envolvente 
                         y comodidad, son ideales para usar durante todo el día.
                     </p>
-                    <button class="btn">Agregar al carrito</button>
+                    <button class="btn" data-id="5" data-nombre="Auriculares" data-precio="6">Agregar al carrito</button>
                     <button class="btn">Comprar ahora</button>
                 </div>
             </section>
             
             <section class="container_producto">
                 <div class="producto_info">
-                    <img class="producto_catalogo" src="../imagenes/productos/teclado.jpg" alt="Teclado alta gama">
+                    <img class="producto_catalogo" src="../imagenes/productos/teclado.jpg" alt="Teclado alta gama" data-id="6">
                     <p class="precio">$8</p>
                 </div>
                 <div class="container_desc_btn">
@@ -142,14 +140,14 @@
                         Este teclado mecánico ofrece una experiencia de escritura superior, ideal para gamers y profesionales. 
                         Con retroiluminación personalizable y teclas duraderas, es una excelente opción para tu configuración.
                     </p>
-                    <button class="btn">Agregar al carrito</button>
+                    <button class="btn" data-id="6" data-nombre="Teclado" data-precio="8">Agregar al carrito</button>
                     <button class="btn">Comprar ahora</button>
                 </div>
             </section>
             
             <section class="container_producto">
                 <div class="producto_info">
-                    <img class="producto_catalogo" src="../imagenes/productos/monitor.jpg" alt="Monitor alta gama">
+                    <img class="producto_catalogo" src="../imagenes/productos/monitor.jpg" alt="Monitor alta gama" data-id="7">
                     <p class="precio">$15</p>
                 </div>
                 <div class="container_desc_btn">
@@ -158,14 +156,14 @@
                         Este monitor 4K proporciona una calidad de imagen excepcional. Perfecto para edición de video y 
                         juegos, su amplia gama de colores y resolución nítida mejorarán tu experiencia visual.
                     </p>
-                    <button class="btn">Agregar al carrito</button>
-                    <button class="btn">Comprar ahora</button>
+                    <button class ="btn" data-id="7" data-nombre="Monitor" data-precio="15">Agregar al carrito</button>
+                    <button class ="btn">Comprar ahora</button>
                 </div>
             </section>
             
             <section class="container_producto">
                 <div class="producto_info">
-                    <img class="producto_catalogo" src="../imagenes/productos/camara_web.jpg" alt="Cámara alta gama">
+                    <img class="producto_catalogo" src="../imagenes/productos/camara_web.jpg" alt="Cámara alta gama" data-id="8">
                     <p class="precio">$4</p>
                 </div>
                 <div class="container_desc_btn">
@@ -174,14 +172,14 @@
                         La cámara web HD es perfecta para videollamadas y streaming. Con calidad de imagen clara y fácil de instalar, 
                         es ideal para el trabajo desde casa.
                     </p>
-                    <button class="btn">Agregar al carrito</button>
+                    <button class="btn" data-id="8" data-nombre="Camara" data-precio="4">Agregar al carrito</button>
                     <button class="btn">Comprar ahora</button>
                 </div>
             </section>
             
             <section class="container_producto">
                 <div class="producto_info">
-                    <img class="producto_catalogo" src="../imagenes/productos/cpu_gamer.jpg" alt="CPU alta gama">
+                    <img class="producto_catalogo" src="../imagenes/productos/cpu_gamer.jpg" alt="CPU alta gama" data-id="9">
                     <p class="precio">$20</p>
                 </div>
                 <div class="container_desc_btn">
@@ -190,14 +188,14 @@
                         Este CPU gamer está diseñado para un rendimiento extremo en juegos. Con hardware de última generación, 
                         permite jugar a los títulos más exigentes con fluidez y calidad gráfica impresionante.
                     </p>
-                    <button class="btn">Agregar al carrito</button>
+                    <button class="btn" data-id="9" data-nombre="CPU" data-precio="20">Agregar al carrito</button>
                     <button class="btn">Comprar ahora</button>
                 </div>
             </section>
             
             <section class="container_producto">
                 <div class="producto_info">
-                    <img class="producto_catalogo" src="../imagenes/productos/mouse.jpg" alt="Mouse alta gama">
+                    <img class="producto_catalogo" src="../imagenes/productos/mouse.jpg" alt="Mouse alta gama" data-id="10">
                     <p class="precio">$7</p>
                 </div>
                 <div class="container_desc_btn">
@@ -207,8 +205,8 @@
                         ofrece una ventaja competitiva en cualquier juego. Su diseño ergonómico asegura comodidad durante 
                         largas sesiones de juego.
                     </p>
-                    <button class="btn">Agregar al carrito</button>
-                    <button class="btn">Comprar ahora</button>
+                    <button id="btn" data-id="10" data-nombre="Mouse" data-precio="7">Agregar al carrito</button>
+                    <button id="btn">Comprar ahora</button>
                 </div>
             </section>           
 
