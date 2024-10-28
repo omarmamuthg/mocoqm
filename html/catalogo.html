@@ -12,10 +12,15 @@
 <body>
     <header class="container">
         <nav class="nav_inicio" role="navigation" aria-label="Menú principal">
-            <div class="nombre_pagina">
-                <a  href="index.html">
-                    <img id ="img_logo" src="../imagenes/mocoQM_Logo3.2.png" alt="imagen del mocoQM (logo)">
-                </a>
+            <div id = "container-icon-imagen">
+                <div class="btn-menu">
+                    <label for="btn-menu">☰</label>
+                </div>
+                <div class="nombre_pagina">
+                    <a  href="index.html">
+                        <img id ="img_logo" src="../imagenes/mocoQM_Logo3.2.png" alt="imagen del mocoQM (logo)">
+                    </a>
+                </div>
             </div>
             <div class="nav_links"> 
                 <ul>
@@ -26,11 +31,27 @@
             </div>
         </nav>
     </header>
-    <div class="container_carrito">
+
+
+
+    <input type="checkbox" id="btn-menu" />
+    <div class="container-menu">
+        <div class="cont-menu">
+          <div>
+            <a href="#">Sing up</a>
+            <a href="#">Login</a>
+          </div>
+          <label for="btn-menu">✖️</label>
+        </div>
+      </div>
+
+    
+    <aside class="container_carrito">
         <h5 class="carrito_title">Carrito</h5>
         <ul id="carrito">
         </ul>
-    </div>  
+    </aside>  
+
     <main>
         <article>
             <section>
@@ -47,7 +68,6 @@
                 </div>
                 <div class="container_desc_btn">
                     <h2 class="descripcion_producto">Laptop de alta gama para uso profesional</h2>
-                    
                     <p class="descripcion_detallada">
                         Esta laptop es ideal para profesionales que requieren un alto rendimiento en tareas exigentes. 
                         Equipado con un procesador potente, memoria RAM ampliada y una tarjeta gráfica de última generación, 
@@ -57,7 +77,7 @@
                     <button class="btn" data-id="1" data-nombre="Laptop" data-precio = "10">Agregar al carrito</button>
                     <button class="btn">Comprar ahora</button>
                 </div>
-            </section>         
+            </section>           
             
             <section class="container_producto">
                 <div class="producto_info">
@@ -244,3 +264,8 @@
     </footer>
 </body>
 </html>
+
+
+
+
+

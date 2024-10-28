@@ -11,10 +11,15 @@
 <body>
     <header class="container">
         <nav class="nav_inicio" role="navigation" aria-label="Menú principal">
-            <div class="nombre_pagina">
-                <a  href="index.html">
-                    <img id ="img_logo" src="../imagenes/mocoQM_Logo3.2.png" alt="imagen del mocoQM (logo)">
-                </a>
+            <div id = "container-icon-imagen">
+                <div class="btn-menu">
+                    <label for="btn-menu">☰</label>
+                </div>
+                <div class="nombre_pagina">
+                    <a  href="index.html">
+                        <img id ="img_logo" src="../imagenes/mocoQM_Logo3.2.png" alt="imagen del mocoQM (logo)">
+                    </a>
+                </div>
             </div>
             <div class="nav_links"> 
                 <ul>
@@ -25,6 +30,18 @@
             </div>
         </nav>
     </header>
+    
+    <input type="checkbox" id="btn-menu" />
+    <div class="container-menu">
+        <div class="cont-menu">
+          <div>
+            <a href="#">Sing up</a>
+            <a href="#">Login</a>
+          </div>
+          <label for="btn-menu">✖️</label>
+        </div>
+      </div>
+
     <main>
         <article>
             <section>
