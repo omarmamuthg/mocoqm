@@ -1,10 +1,19 @@
 /*imagenes*/
 .producto_catalogo:hover {
-    content: url('https://m.media-amazon.com/images/I/71xII7d0jlL._AC_SL1500_.jpg');
-  }
+    transform: scale(1.10); /* Efecto de escalado suave */
+    background-image: url('https://m.media-amazon.com/images/I/71xII7d0jlL._AC_SL1500_.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+  
 
 
-/* Ajuste de tamaño de la imagen */
+main {
+    padding: 15px; 
+}
+
+/*Ajuste de tamaño de la imagen */
 .producto_catalogo {
     width: 200px;
     height: auto; 
@@ -17,7 +26,7 @@
     display: flex;
     flex-direction: column; 
     align-items: center; 
-    justify-content: center; 
+    justify-content: space-around; 
     height: 100%; 
     flex: 1;
     padding-right: 20px;
@@ -29,7 +38,7 @@
     justify-content: start;
     align-items: flex-start; 
     padding: 20px; 
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(176, 176, 176, 0.5);
     border-radius: 10px;
     margin-bottom: 20px;
 }
@@ -37,8 +46,14 @@
 .container_desc_btn {
     flex: 2; 
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;    
 }
+
+.container_desc_btn > * {
+    margin: 0;
+}
+
+ 
 
 .btn {
     margin: 10px auto; 
@@ -53,35 +68,33 @@
     height: auto; 
 }
 
+
 .descripcion_producto, .precio {
     margin: 5px 0;
 }
 
 .descripcion_detallada {
-    margin-bottom: 15px; 
+    margin-bottom: 15px;
+    padding: 10px;
 }
-
 
 .btn {
     border-radius: 10px; 
-    margin-top: 5px; 
+    margin-top: 0.5px; 
     background-color: rgb(255, 255, 0); 
-    color: black; 
-    border: none; 
+    color: black;  
     padding: 5px;
     font-size: 14px;
     cursor: pointer; 
-    transition: background-color 0.3s; 
+    
     width: 130px;
     text-align: center;
+    border: 1px solid black;
 }
 
 .btn:hover {
     background-color: gold;
 }
-
-
-
 
 h2{
     font-family: 'Calibri', sans-serif;
@@ -92,16 +105,9 @@ h2{
 p{
     font-family: 'Calibri', sans-serif;
     font-size: 20px;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 .precio {
     color :rgb(243, 34, 34);
 }
-
-
-
-
-
-
-
