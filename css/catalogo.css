@@ -48,7 +48,7 @@ figure img {
 
 
 .item:hover img {
-    transform: scale(1.05); /* Efecto zoom en imagen */
+    transform: scale(1.1); /* Efecto zoom en imagen */
 }
 
 /* Información del producto */
@@ -105,4 +105,60 @@ figure img {
     border: 1px solid green;
     width: 50px;
     margin: 0 auto;
+}
+
+
+/*Carrito*/
+/* Estilo del carrito */
+.container_carrito {
+    width: 25%;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.carrito_title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+ul#carrito {
+    list-style-type: none;
+    padding: 0;
+}
+
+button {
+    margin: 5px;
+    padding: 5px 10px;
+}
+
+/* Estilo de la ventana emergente */
+#ventanaCompra {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 2px solid black;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.checkIcon {
+    width: 50px;
+    margin-bottom: 10px;
+}
+
+/* Botón de cerrar la ventana emergente */
+#cerrarVentana {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#cerrarVentana:hover {
+    background-color: #45a049;
 }
