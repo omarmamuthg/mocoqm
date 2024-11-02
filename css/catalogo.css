@@ -25,15 +25,16 @@ main {
 .item {
     background-color: white;
     border-radius: 10px;
-    padding: 15px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-    text-align: center; /* Centra el contenido */
-    width: 100%; /* Asegura que el ancho ocupe el espacio del grid */
-    min-height: 400px; /* Altura mínima igual para todos los contenedores */
+    padding: 3px; /* Ajusta el espacio interno */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Sombra más ligera */
+    text-align: center;
+    width: 70%; /* Ajusta el ancho del contenedor */
+    min-height: 150px; /* Altura mínima más pequeña */
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Asegura que el contenido dentro del contenedor esté bien distribuido */
+    justify-content: space-between;
 }
+
 
 
 figure img {
@@ -118,7 +119,7 @@ figure img {
 #iconoCarrito {
     font-size: 3em;
     cursor: pointer;
-    background-color: #3a057a; /* Fondo gris claro transparente */
+    background-color: #6a28ba; /* Fondo gris claro transparente */
     border-radius: 15px; /* Esquinas redondeadas */
     padding: 2px; /* Espacio alrededor del icono */
     display: block; /* Para que el fondo envuelva solo el icono */
