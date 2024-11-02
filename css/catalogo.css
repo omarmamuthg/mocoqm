@@ -106,20 +106,6 @@ figure img {
     width: 50px;
     margin: 0 auto;
 }
-<<<<<<< HEAD
-
-.container_carrito{
-    position: absolute;
-    top: 25%;
-    left: 20px;
-    background-color: pink;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-=======
 /* Contenedor principal del carrito y el icono */
 #carritoWrapper {
     position: fixed;
@@ -138,23 +124,19 @@ figure img {
     display: block; /* Para que el fondo envuelva solo el icono */
     margin-bottom: 10px; /* Espacio entre el icono y el carrito */
 }
-
-/* Estilo del carrito */
+/* Contenedor principal del carrito */
 .container_carrito {
     width: 250px; /* Ajusta el ancho del carrito */
     background-color: #f0f0f0;
-    border: 1px solid #ccc;
+    border: 20x solid #ccc;
     padding: 20px;
     border-radius: 5px;
-    display: none; /* Se muestra solo cuando es necesario */
+    max-height: 400px; /* Define la altura máxima para el contenedor */
+    overflow-y: auto; /* Activa la barra de desplazamiento vertical */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar un efecto elevado */
 }
 
-/* Mostrar el carrito cuando sea necesario */
-.container_carrito.visible {
-    display: block;
-}
-
-/* Otros estilos para el carrito */
+/* Estilo del título del carrito */
 .carrito_title {
     font-size: 1.5em;
     margin-bottom: 10px;
@@ -162,24 +144,30 @@ figure img {
     font-weight: bold;
 }
 
+/* Estilo de la lista de productos en el carrito */
 ul#carrito {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 #carrito li {
     margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd; /* Línea divisoria entre productos */
 }
 
+/* Estilo del total del carrito */
 #totalCarrito {
     font-weight: bold;
+    text-align: right;
+    margin-top: 10px;
 }
 
-button {
-    margin: 5px;
-    padding: 5px 10px;
-}
-
+/* Botón de compra */
 #btnComprar {
     background-color: #4CAF50;
     color: white;
@@ -187,19 +175,32 @@ button {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    width: 100%; /* Botón ancho completo */
+    text-align: center;
+    font-size: 1em;
 }
 
-/* Estilo de los botones */
+#btnComprar:hover {
+    background-color: #45a049; /* Cambio de color al pasar el cursor */
+}
+
+/* Estilo de los íconos del carrito */
+.carrito_icon {
+    display: block;
+    margin: 0 auto 10px;
+    width: 50px;
+    height: auto;
+}
+
+/* Otros estilos de botones (si los hay en el carrito) */
 .btn-aumentar, .btn-disminuir, .btn-eliminar {
     color: white;
     border: none;
-    padding: 10px 22px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
+    padding: 5px 10px;
     cursor: pointer;
+    font-size: 0.9em;
+    border-radius: 3px;
+    margin-left: 5px;
 }
 
 .btn-aumentar {
@@ -210,39 +211,56 @@ button {
     background-color: #f44336; /* Rojo */
 }
 
-/* Ventana emergente del carrito */
-#carritoEmergente {
+.btn-eliminar {
+    background-color: #888; /* Gris */
+}
+
+
+/* Estilo de la ventana emergente de compra exitosa */
+#ventanaCompra {
     display: none;
     position: fixed;
-    top: 160px;
-    right: 20px;
-    width: 250px;
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 16px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    transform: scale(0);
-    transition: transform 0.3s ease;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 2px solid #4CAF50; /* Borde verde */
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px; /* Esquinas redondeadas */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra para efecto de elevación */
+    z-index: 1000; /* Asegura que se muestre por encima de otros elementos */
+    max-width: 300px; /* Ancho máximo de la ventana */
+    width: 80%; /* Ancho flexible para pantallas más pequeñas */
 }
 
-#carritoEmergente.visible {
-    display: block;
-    transform: scale(1);
+/* Estilo del ícono de éxito */
+.icono-exito {
+    width: 50px;
+    margin-bottom: 10px; /* Espacio debajo del ícono */
 }
 
-/* Cartelera del carrito */
-#carteleraCarrito {
-    display: none;
-    position: absolute;
-    top: 40px;
-    right: 0;
-    background-color: white;
-    border: 1px solid #ccc;
-    padding: 10px;
-    width: 200px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
+/* Estilo del mensaje de éxito */
+.mensaje-exito {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #4CAF50; /* Texto verde */
+    margin: 10px 0; /* Espaciado superior e inferior */
 }
->>>>>>> 2c3f1b2bbb25d155570ce3641542a13e620eb9fa
+
+/* Estilo del botón de cerrar */
+.boton-cerrar {
+    background-color: #4CAF50; /* Fondo verde */
+    color: #fff; /* Texto blanco */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s; /* Transición suave para el cambio de color */
+}
+
+/* Efecto al pasar el cursor por el botón */
+.boton-cerrar:hover {
+    background-color: #45a049; /* Verde más oscuro al pasar el cursor */
+}

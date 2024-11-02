@@ -45,39 +45,34 @@
         </div>
       </div>
     
-    
-    
-<!-- Contenedor principal que agrupa el icono y la cartelera del carrito -->
-<div id="carritoWrapper">
-    <!-- Ícono de carrito de compras -->
-    <div id="iconoCarrito" style="cursor: pointer;">
-        🛒
+
+    <!-- Contenedor principal que agrupa el icono y la cartelera del carrito -->
+    <div id="carritoWrapper">
+        <!-- Ícono de carrito de compras -->
+        <div id="iconoCarrito" style="cursor: pointer;">
+            🛒
+        </div>
+
+        <!-- Cartelera del carrito -->
+        <aside id="carteleraCarrito" class="container_carrito" style="display: none;">
+            <img class="carrito_icon" src="https://img.icons8.com/?size=100&id=59742&format=png&color=000000" alt="carrito de compras" height="50px">
+            <h5 class="carrito_title">Carrito</h5>
+            <ul id="carrito"></ul>
+            <p id="totalCarrito"></p>
+            <button id="btnComprar">Comprar</button>
+        </aside>
     </div>
 
-    <!-- Cartelera del carrito -->
-    <aside id="carteleraCarrito" class="container_carrito" style="display: none;">
-        <h5 class="carrito_title">Carrito</h5>
-<<<<<<< HEAD
-        <img class="carrito_icon" src="https://img.icons8.com/?size=100&id=59742&format=png&color=000000" alt="carrito de compras" height="50px">
-        <ul id="carrito">
-        </ul>
-    </aside>  
-=======
-        <ul id="carrito"></ul>
-        <p id="totalCarrito"></p>
-        <button id="btnComprar">Comprar</button>
-    </aside>
-</div>
 
-
+    
     <!-- Ventana emergente de compra exitosa -->
-    <div id="ventanaCompra" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; border: 2px solid black; padding: 20px; text-align: center;">
-        <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Check Verde" style="width: 50px;">
-        <p>Compra Exitosa</p>
-        <button id="cerrarVentana">Cerrar</button>
+    <div id="ventanaCompra" style="display: none;">
+        <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Check Verde" class="icono-exito">
+        <p class="mensaje-exito">¡Compra Exitosa!</p>
+        <button id="cerrarVentana" class="boton-cerrar">Cerrar</button>
     </div>
-    
->>>>>>> 2c3f1b2bbb25d155570ce3641542a13e620eb9fa
+
+
 
     <main>
         <article>
