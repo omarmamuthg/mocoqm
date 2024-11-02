@@ -27,10 +27,23 @@ style.textContent = `
   #totalCarrito {
     font-family: Arial, sans-serif;
   }
+
+  /* Estilo para el contador de productos */
+  #contadorProductos {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    font-weight: bold;
+    display: none; /* Inicialmente oculto */
+  }
 `;
 
 document.head.appendChild(style);
-
 
 document.addEventListener('DOMContentLoaded', () => {
     const botonesAgregar = document.querySelectorAll('.btn[data-id]');
@@ -41,6 +54,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const cerrarVentana = document.getElementById('cerrarVentana');
     const iconoCarrito = document.getElementById('iconoCarrito');
     const carteleraCarrito = document.getElementById('carteleraCarrito');
+
+    // Crear y añadir el contador de productos al icono del carrito
+    const contadorProductos = document.createElement('span');
+    contadorProductos.id = 'contadorProductos';
+    iconoCarrito.appendChild(contadorProductos);
 
     const productosCarrito = {};
 
@@ -124,10 +142,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         totalCarrito.textContent = `Total: $${total.toFixed(2)}`;
 
+        actualizarContadorCarrito(); // Llama a esta función para actualizar el contador
+
         if (Object.keys(productosCarrito).length === 0) {
             carrito.innerHTML = '<li>No hay productos en el carrito</li>';
             totalCarrito.textContent = '';
         }
+    }
+
+    function actualizarContadorCarrito() {
+        const cantidadArticulos = Object.keys(productosCarrito).length; // Contar productos únicos
+        contadorProductos.textContent = cantidadArticulos;
+        contadorProductos.style.display = cantidadArticulos > 0 ? 'block' : 'none'; // Mostrar/ocultar el contador
     }
 
     function eliminarProducto(id) {
