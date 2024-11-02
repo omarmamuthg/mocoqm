@@ -1,3 +1,20 @@
+const style = document.createElement('style');
+style.textContent = `
+  .btn-aumentar, .btn-disminuir, .btn-eliminar {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 22px;
+    cursor: pointer;
+  }
+
+  .btn-disminuir {
+    background-color: #f44336;
+  }
+`;
+
+document.head.appendChild(style);
+
 document.addEventListener('DOMContentLoaded', () => {
     const botonesAgregar = document.querySelectorAll('.btn[data-id]');
     const carrito = document.getElementById('carrito');
@@ -11,12 +28,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const productosCarrito = {};
 
     // Mostrar/Ocultar la cartelera al hacer clic en el ícono de carrito
-    iconoCarrito.addEventListener('click', () => {
-        if (carteleraCarrito.style.display === 'none') {
-            carteleraCarrito.style.display = 'block';
-        } else {
-            carteleraCarrito.style.display = 'none';
-        }
+    iconoCarrito.addEventListener('click', (event) => {
+        // Posiciona la cartelera justo al lado del icono del carrito
+        const rect = iconoCarrito.getBoundingClientRect();
+        carteleraCarrito.style.top = `${rect.bottom}px`; 
+        carteleraCarrito.style.right = `${window.innerWidth - rect.right}px`; 
+
+        // Alterna la visibilidad de la cartelera
+        carteleraCarrito.style.display = carteleraCarrito.style.display === 'none' || carteleraCarrito.style.display === '' ? 'block' : 'none';
 
         // Si no hay productos, mostrar un mensaje
         if (Object.keys(productosCarrito).length === 0) {
@@ -47,6 +66,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function actualizarCarrito() {
+
+        document.head.appendChild(style);
+
+        const botonAumentar = document.createElement('button');
+        botonAumentar.textContent = '+';
+        botonAumentar.classList.add('btn-aumentar'); // Agrega una clase para aplicar estilos
+
+        const botonDisminuir = document.createElement('button');
+        botonDisminuir.textContent = '-';
+        botonDisminuir.classList.add('btn-disminuir'); // Agrega una clase para aplicar estilos
+
+        const botonEliminar = document.createElement('button');
+        botonEliminar.textContent = 'Eliminar';
+        botonEliminar.classList.add('btn-eliminar');
         carrito.innerHTML = '';
         let total = 0;
 
@@ -106,6 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (Object.keys(productosCarrito).length > 0) {
             ventanaCompra.style.display = 'block';
             vaciarCarrito();
+            carteleraCarrito.style.display = 'none'; // Oculta el carrito después de la compra
         } else {
             alert('No hay productos en el carrito');
         }
@@ -115,3 +149,12 @@ document.addEventListener('DOMContentLoaded', () => {
         ventanaCompra.style.display = 'none';
     });
 });
+
+
+
+
+
+
+
+
+
