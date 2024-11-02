@@ -271,3 +271,93 @@ ul#carrito {
     font-weight: bold;
     display: none; /* Inicialmente oculto */
 }
+
+
+/*Datos de compra h3*/
+#DatosCompra {
+    font-family: Arial, sans-serif;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+}
+/*Estilo carrito*/
+
+/* Estilo para el contenedor principal del formulario */
+#ventanaFormulario {
+    width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 2px solid #4CAF50;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+/* Estilo para el título */
+#ventanaFormulario h3 {
+    text-align: center;
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Estilo para las etiquetas */
+#ventanaFormulario label {
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+    color: #333;
+}
+
+/* Estilo para los campos de entrada */
+#ventanaFormulario input[type="text"],
+#ventanaFormulario input[type="email"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+/* Estilo para el botón de Confirmar */
+#btnConfirmarCompra {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Estilo para el botón de Cerrar */
+#cerrarFormulario {
+    width: 100%;
+    padding: 10px;
+    background-color: #f44336;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Efecto hover para los botones */
+#btnConfirmarCompra:hover {
+    background-color: #45a049;
+}
+
+#cerrarFormulario:hover {
+    background-color: #e53935;
+}
