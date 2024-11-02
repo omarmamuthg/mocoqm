@@ -4,16 +4,33 @@ style.textContent = `
     background-color: #4CAF50;
     color: white;
     border: none;
-    padding: 10px 22px;
+    padding: 5px 10px;
     cursor: pointer;
+    border-radius: 4px;
+    margin: 0 5px;
+    font-size: 14px;
   }
 
   .btn-disminuir {
     background-color: #f44336;
   }
+
+  .btn-eliminar {
+    background-color: #FF5722;
+  }
+
+  /* Cambiar la fuente a Arial para el carrito */
+  #carrito, #carrito li {
+    font-family: Arial, sans-serif;
+  }
+
+  #totalCarrito {
+    font-family: Arial, sans-serif;
+  }
 `;
 
 document.head.appendChild(style);
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const botonesAgregar = document.querySelectorAll('.btn[data-id]');
@@ -29,15 +46,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Mostrar/Ocultar la cartelera al hacer clic en el ícono de carrito
     iconoCarrito.addEventListener('click', (event) => {
-        // Posiciona la cartelera justo al lado del icono del carrito
         const rect = iconoCarrito.getBoundingClientRect();
-        carteleraCarrito.style.top = `${rect.bottom}px`; 
-        carteleraCarrito.style.right = `${window.innerWidth - rect.right}px`; 
+        carteleraCarrito.style.top = `${rect.bottom}px`;
+        carteleraCarrito.style.right = `${window.innerWidth - rect.right}px`;
 
-        // Alterna la visibilidad de la cartelera
         carteleraCarrito.style.display = carteleraCarrito.style.display === 'none' || carteleraCarrito.style.display === '' ? 'block' : 'none';
 
-        // Si no hay productos, mostrar un mensaje
         if (Object.keys(productosCarrito).length === 0) {
             carrito.innerHTML = '<li>No hay productos en el carrito</li>';
         }
@@ -66,20 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function actualizarCarrito() {
-
-        document.head.appendChild(style);
-
-        const botonAumentar = document.createElement('button');
-        botonAumentar.textContent = '+';
-        botonAumentar.classList.add('btn-aumentar'); // Agrega una clase para aplicar estilos
-
-        const botonDisminuir = document.createElement('button');
-        botonDisminuir.textContent = '-';
-        botonDisminuir.classList.add('btn-disminuir'); // Agrega una clase para aplicar estilos
-
-        const botonEliminar = document.createElement('button');
-        botonEliminar.textContent = 'Eliminar';
-        botonEliminar.classList.add('btn-eliminar');
         carrito.innerHTML = '';
         let total = 0;
 
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const botonAumentar = document.createElement('button');
             botonAumentar.textContent = '+';
-            botonAumentar.style.marginLeft = '10px';
+            botonAumentar.classList.add('btn-aumentar');
             botonAumentar.addEventListener('click', () => {
                 productosCarrito[id].cantidad += 1;
                 actualizarCarrito();
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const botonDisminuir = document.createElement('button');
             botonDisminuir.textContent = '-';
-            botonDisminuir.style.marginLeft = '10px';
+            botonDisminuir.classList.add('btn-disminuir');
             botonDisminuir.addEventListener('click', () => {
                 if (productosCarrito[id].cantidad > 1) {
                     productosCarrito[id].cantidad -= 1;
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const botonEliminar = document.createElement('button');
             botonEliminar.textContent = 'Eliminar';
-            botonEliminar.style.marginLeft = '10px';
+            botonEliminar.classList.add('btn-eliminar');
             botonEliminar.addEventListener('click', () => {
                 eliminarProducto(id);
             });
@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (Object.keys(productosCarrito).length > 0) {
             ventanaCompra.style.display = 'block';
             vaciarCarrito();
-            carteleraCarrito.style.display = 'none'; // Oculta el carrito después de la compra
+            carteleraCarrito.style.display = 'none';
         } else {
             alert('No hay productos en el carrito');
         }
@@ -149,12 +149,3 @@ document.addEventListener('DOMContentLoaded', () => {
         ventanaCompra.style.display = 'none';
     });
 });
-
-
-
-
-
-
-
-
-

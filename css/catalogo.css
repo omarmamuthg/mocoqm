@@ -118,7 +118,7 @@ figure img {
 #iconoCarrito {
     font-size: 3em;
     cursor: pointer;
-    background-color: rgba(200, 200, 200, 0.5); /* Fondo gris claro transparente */
+    background-color: #3a057a; /* Fondo gris claro transparente */
     border-radius: 15px; /* Esquinas redondeadas */
     padding: 2px; /* Espacio alrededor del icono */
     display: block; /* Para que el fondo envuelva solo el icono */
@@ -192,27 +192,16 @@ ul#carrito {
     height: auto;
 }
 
-/* Otros estilos de botones (si los hay en el carrito) */
-.btn-aumentar, .btn-disminuir, .btn-eliminar {
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    font-size: 0.9em;
-    border-radius: 3px;
-    margin-left: 5px;
-}
-
-.btn-aumentar {
-    background-color: green;
-}
-
-.btn-disminuir {
-    background-color: #f44336; /* Rojo */
-}
-
-.btn-eliminar {
-    background-color: #888; /* Gris */
+/* Estilo para el título del carrito */
+.carrito_title {
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 2px solid #4CAF50;
+    margin-bottom: 10px;
 }
 
 
