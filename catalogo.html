@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/catalogo.css">
     <link rel="stylesheet" href="css/index.css">
     <script type="text/javascript" src="JS/carrito.js   "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
     <header class="container">
@@ -81,8 +82,23 @@
     <div id="ventanaCompra" style="display: none;">
         <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Check Verde" class="icono-exito">
         <p class="mensaje-exito">¡Compra Exitosa!</p>
+        <button id= "GenerarFactura" class = "boton-generarFactura" onclick="generarFactura()">Generar Factura</button>
         <button id="cerrarVentana" class="boton-cerrar">Cerrar</button>
     </div>
+
+    <script>
+        function generarPDF() {
+            // Accede a jsPDF desde el espacio de nombres `window.jspdf`
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            // Agrega contenido al PDF
+            doc.text("¡Hola, este es un archivo PDF generado con jsPDF!", 10, 10);
+
+            // Guarda el archivo con el nombre especificado
+            doc.save("archivo.pdf");
+        }
+    </script>
 
     <div id="ventanaFormulario" class="ventanaFormulario">
         <h3 id = "DatosCompra" >Datos de compra</h3>

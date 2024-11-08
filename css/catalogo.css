@@ -233,6 +233,8 @@ ul#carrito {
 
 /* Estilo del mensaje de éxito */
 .mensaje-exito {
+    display: flex;
+    justify-content: center;
     font-size: 1.2em;
     font-weight: bold;
     color: #4CAF50; /* Texto verde */
@@ -242,6 +244,18 @@ ul#carrito {
 /* Estilo del botón de cerrar */
 .boton-cerrar {
     background-color: #4CAF50; /* Fondo verde */
+    color: #fff; /* Texto blanco */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s; /* Transición suave para el cambio de color */
+}
+
+/*Estilo para boton de generar factura*/
+.boton-generarFactura {
+    background-color: #4037db; /* Fondo verde */
     color: #fff; /* Texto blanco */
     border: none;
     padding: 10px 20px;
