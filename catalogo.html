@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="css/catalogo.css">
     <link rel="stylesheet" href="css/index.css">
     <script type="text/javascript" src="JS/carrito.js   "></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
     <header class="container">
@@ -88,19 +87,89 @@
         <button id="cerrarVentana" class="boton-cerrar">Cerrar</button>
     </div>
 
+    <script src="https://unpkg.com/jspdf-invoice-template@1.4.0/dist/index.js"></script>
     <script>
-        function generarPDF() {
-            // Accede a jsPDF desde el espacio de nombres `window.jspdf`
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
 
-            // Agrega contenido al PDF
-            doc.text("¡Hola, este es un archivo PDF generado con jsPDF!", 10, 10);
+    // Función para generar factura dinámica
+    function generarFactura() {
+    const carritoItems = obtenerProductosDelCarrito();
+    const datosCliente = obtenerDatosCliente();
+    console.log(datosCliente);
+    const itemsTabla = carritoItems.map((producto, index) => ([
+        index + 1,
+        producto.nombre,        // Nombre del producto
+        producto.cantidad,      // Cantidad
+        producto.precio,        // Precio unitario
+        producto.cantidad * producto.precio // Total por producto
+    ]));
 
-            // Guarda el archivo con el nombre especificado
-            doc.save("archivo.pdf");
-        }
+    const props = {
+        outputType: jsPDFInvoiceTemplate.OutputType.Save,
+        returnJsPDFDocObject: true,
+        fileName: "Factura",
+        orientationLandscape: false,
+        logo: {
+            src: "imagenes/mocoQM_Logo3.2.png",
+            width: 50,
+            height: 25,
+        },
+        business: {
+            name: "MocoQM",
+            address: "Calle 145 # 145-45",
+            phone: "812-472-4490",
+            email: "MocoQM@example.com",
+        },
+        contact: {
+            label: "Factura para:",
+            name: datosCliente.nombre,
+            email: datosCliente.correo,
+        },
+        invoice: {
+            header: [
+                { title: "#" },
+                { title: "Producto" },
+                { title: "Cantidad" },
+                { title: "Precio Unitario" },
+                { title: "Total" },
+            ],
+            table: itemsTabla, // Asignamos los items de la tabla generados dinámicamente
+            additionalRows: [{
+                col1: 'Total a Pagar:',
+                col2: calcularTotal(carritoItems).toFixed(2),
+                col3: 'USD',
+            }],
+        },
+        footer: {
+            text: "Factura generada automáticamente. Sin firma requerida.",
+        },
+    };
+
+    var pdfObject = jsPDFInvoiceTemplate.default(props);
+    console.log("PDF generado exitosamente: ", pdfObject);
+}
+
+function obtenerDatosCliente() { 
+    const nombreCliente = document.getElementById('nombre').value; 
+    const correoCliente = document.getElementById('correo').value; 
+    return { nombre: nombreCliente, correo: correoCliente }; 
+}
+
+// Función para obtener productos del carrito (simulación)
+function obtenerProductosDelCarrito() {
+    // Aquí simulamos la obtención de productos. En tu código real, toma los productos desde el DOM o un array de carrito.
+    return [
+        { nombre: "Laptop", cantidad: 2, precio: 10 },
+        { nombre: "Celular iPhone", cantidad: 1, precio: 5 },
+        { nombre: "Smartwatch", cantidad: 3, precio: 4 },
+    ];
+}
+
+// Calcula el total de la factura
+function calcularTotal(carritoItems) {
+    return carritoItems.reduce((total, item) => total + (item.precio * item.cantidad), 0);
+}
     </script>
+
 
     <div id="ventanaFormulario" class="ventanaFormulario">
         <h3 id = "DatosCompra" >Datos de compra</h3>
