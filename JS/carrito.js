@@ -1,197 +1,273 @@
 const style = document.createElement('style');
 style.textContent = `
-  .btn-aumentar, .btn-disminuir, .btn-eliminar {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 4px;
-    margin: 0 5px;
-    font-size: 14px;
-  }
-  .btn-disminuir { background-color: #f44336; }
-  .btn-eliminar { background-color: #FF5722; }
-  #carrito, #carrito li, #totalCarrito, .ventanaFormulario, .ventanaCompra {
-    font-family: Arial, sans-serif;
-  }
-  #contadorProductos {
-    position: absolute;
-    top: -5px;
-    right: -10px;
-    background-color: red;
-    color: white;
-    border-radius: 50%;
-    padding: 2px 6px;
-    font-size: 12px;
-    font-weight: bold;
-    display: none;
-  }
-  .ventanaFormulario, .ventanaCompra {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    width: 300px;
-  }
-  .ventanaFormulario input, .ventanaFormulario button {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-  }
-  .ventanaFormulario label {
-    font-weight: bold;
-    display: block;
-    margin-top: 10px;
-  }
+    .btn-aumentar, .btn-disminuir, .btn-eliminar {
+        background-color: #4CAF50; color: white; border: none; padding: 5px 10px;
+        cursor: pointer; border-radius: 4px; margin: 0 5px; font-size: 14px;
+    }
+    .btn-disminuir { background-color: #f44336; }
+    .btn-eliminar { background-color: #FF5722; }
+    #carrito, #carrito li, #totalCarrito, .ventanaFormulario, .ventanaCompra, .ventanaConfirmacion {
+        font-family: Arial, sans-serif;
+    }
+    #contadorProductos {
+        position: absolute; top: -5px; right: -10px; background-color: red;
+        color: white; border-radius: 50%; padding: 2px 6px; font-size: 12px;
+        font-weight: bold; display: none;
+    }
+    .ventanaFormulario, .ventanaCompra, .ventanaConfirmacion {
+        display: none; position: fixed; top: 50%; left: 50%;
+        transform: translate(-50%, -50%); background-color: white;
+        padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        width: 300px;
+    }
+    .ventanaFormulario input, .ventanaFormulario button {
+        width: 100%; padding: 10px; margin: 10px 0;
+    }
+    .ventanaFormulario label { font-weight: bold; display: block; margin-top: 10px; }
+
+
+
+
+
+    .btn-aumentar, .btn-disminuir, .btn-eliminar {
+        background-color: #4CAF50; color: white; border: none; padding: 5px 10px;
+        cursor: pointer; border-radius: 4px; margin: 0 5px; font-size: 14px;
+    }
+    .btn-disminuir { background-color: #f44336; }
+    .btn-eliminar { background-color: #FF5722; }
+    #carrito, #carrito li, #totalCarrito, .ventanaFormulario, .ventanaCompra, .ventanaConfirmacion {
+        font-family: Arial, sans-serif;
+    }
+    #contadorProductos {
+        position: absolute; top: -5px; right: -10px; background-color: red;
+        color: white; border-radius: 50%; padding: 2px 6px; font-size: 12px;
+        font-weight: bold; display: none;
+    }
+    .ventanaFormulario, .ventanaCompra, .ventanaConfirmacion {
+        display: none; position: fixed; top: 50%; left: 50%;
+        transform: translate(-50%, -50%); background-color: white;
+        padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        width: 300px;
+    }
+    .ventanaFormulario input, .ventanaFormulario button {
+        width: 100%; padding: 10px; margin: 10px 0;
+    }
+    .ventanaFormulario label { font-weight: bold; display: block; margin-top: 10px; }
+
+    /* Estilos adicionales para la ventana de confirmación */
+    .ventanaConfirmacion {
+        background-color: #f0f0f0; padding: 20px; border-radius: 8px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); font-size: 14px; color: #333;
+    }
+    .ventanaConfirmacion h2 {
+        margin-top: 0; color: #4CAF50; font-size: 18px;
+    }
+    .ventanaConfirmacion ul {
+        list-style-type: none; padding: 0; margin: 10px 0;
+    }
+    .ventanaConfirmacion li {
+        padding: 5px 0; border-bottom: 1px solid #ddd;
+    }
+    .ventanaConfirmacion p {
+        font-weight: bold; margin: 15px 0;
+    }
+    .ventanaConfirmacion button {
+        padding: 8px 15px; border: none; cursor: pointer;
+        border-radius: 5px; font-size: 14px;
+    }
+    #btnConfirmar { background-color: #4CAF50; color: white; }
+    #btnCancelar { background-color: #f44336; color: white; margin-left: 10px; }
+
+    /* Estilos adicionales para el botón Confirmar Compra */
+    #btnConfirmarCompra {
+        background-color: #2196F3; color: white; border: none;
+        padding: 10px; font-size: 16px; font-weight: bold;
+        border-radius: 8px; cursor: pointer; width: 100%;
+        transition: background-color 0.3s;
+    }
+    #btnConfirmarCompra:hover {
+        background-color: #1e88e5;
+    }
+
+
+    
+
 `;
 document.head.appendChild(style);
 
 document.addEventListener('DOMContentLoaded', () => {
-  const botonesAgregar = document.querySelectorAll('.btn[data-id]');
-  const carrito = document.getElementById('carrito');
-  const totalCarrito = document.getElementById('totalCarrito');
-  const btnComprar = document.getElementById('btnComprar');
-  const ventanaFormulario = document.getElementById('ventanaFormulario');
-  const ventanaCompra = document.getElementById('ventanaCompra');
-  const cerrarVentana = document.getElementById('cerrarVentana');
-  const iconoCarrito = document.getElementById('iconoCarrito');
-  const carteleraCarrito = document.getElementById('carteleraCarrito');
-  const cerrarFormulario = document.getElementById('cerrarFormulario');
-  const btnConfirmarCompra = document.getElementById('btnConfirmarCompra');
-  const nombreInput = document.getElementById('nombre');
-  const domicilioInput = document.getElementById('domicilio');
-  const tarjetaInput = document.getElementById('tarjeta');
-  const correoInput = document.getElementById('correo');
+    const botonesAgregar = document.querySelectorAll('.btn[data-id]');
+    const carrito = document.getElementById('carrito');
+    const totalCarrito = document.getElementById('totalCarrito');
+    const btnComprar = document.getElementById('btnComprar');
+    const ventanaFormulario = document.getElementById('ventanaFormulario');
+    const ventanaCompra = document.getElementById('ventanaCompra');
+    const ventanaConfirmacion = document.createElement('div'); // Ventana de confirmación
+    const cerrarVentana = document.getElementById('cerrarVentana');
+    const iconoCarrito = document.getElementById('iconoCarrito');
+    const carteleraCarrito = document.getElementById('carteleraCarrito');
+    const cerrarFormulario = document.getElementById('cerrarFormulario');
+    const btnConfirmarCompra = document.getElementById('btnConfirmarCompra');
+    const nombreInput = document.getElementById('nombre');
+    const domicilioInput = document.getElementById('domicilio');
+    const tarjetaInput = document.getElementById('tarjeta');
+    const correoInput = document.getElementById('correo');
+    const contadorProductos = document.createElement('span');
+    contadorProductos.id = 'contadorProductos';
+    iconoCarrito.appendChild(contadorProductos);
+    const productosCarrito = {};
 
-  const contadorProductos = document.createElement('span');
-  contadorProductos.id = 'contadorProductos';
-  iconoCarrito.appendChild(contadorProductos);
+    ventanaConfirmacion.classList.add('ventanaConfirmacion');
+    ventanaConfirmacion.innerHTML = `
+        <h2>Confirmación de Productos</h2>
+        <ul id="listaConfirmacion"></ul>
+        <p id="totalConfirmacion"></p>
+        <button id="btnConfirmar">Confirmar</button>
+        <button id="btnCancelar">Cancelar</button>
+    `;
+    document.body.appendChild(ventanaConfirmacion);
 
-  const productosCarrito = {};
-
-  iconoCarrito.addEventListener('click', () => {
-    const rect = iconoCarrito.getBoundingClientRect();
-    carteleraCarrito.style.top = `${rect.bottom}px`;
-    carteleraCarrito.style.right = `${window.innerWidth - rect.right}px`;
-    carteleraCarrito.style.display = carteleraCarrito.style.display === 'none' || !carteleraCarrito.style.display ? 'block' : 'none';
-    if (!Object.keys(productosCarrito).length) {
-      carrito.innerHTML = '<li>No hay productos en el carrito</li>';
-    }
-  });
-
-  botonesAgregar.forEach(boton => {
-    boton.addEventListener('click', () => {
-      const id = boton.getAttribute('data-id');
-      const nombre = boton.getAttribute('data-nombre');
-      const precio = parseFloat(boton.getAttribute('data-precio'));
-      productosCarrito[id] = productosCarrito[id] ? { ...productosCarrito[id], cantidad: productosCarrito[id].cantidad + 1 } : { nombre, precio, cantidad: 1 };
-      actualizarCarrito();
+    iconoCarrito.addEventListener('click', () => {
+        const rect = iconoCarrito.getBoundingClientRect();
+        carteleraCarrito.style.top = `${rect.bottom}px`;
+        carteleraCarrito.style.right = `${window.innerWidth - rect.right}px`;
+        carteleraCarrito.style.display = carteleraCarrito.style.display === 'none' || !carteleraCarrito.style.display ? 'block' : 'none';
+        if (!Object.keys(productosCarrito).length) {
+            carrito.innerHTML = '<li>No hay productos en el carrito</li>';
+        }
     });
-  });
 
-  function actualizarCarrito() {
-    carrito.innerHTML = '';
-    let total = 0;
-    for (const id in productosCarrito) {
-      const { nombre, precio, cantidad } = productosCarrito[id];
-      const nuevoLi = document.createElement('li');
-      nuevoLi.innerHTML = `${nombre} - $${precio} x ${cantidad}`;
+    botonesAgregar.forEach(boton => {
+        boton.addEventListener('click', () => {
+            const id = boton.getAttribute('data-id');
+            const nombre = boton.getAttribute('data-nombre');
+            const precio = parseFloat(boton.getAttribute('data-precio'));
+            productosCarrito[id] = productosCarrito[id] ? { ...productosCarrito[id], cantidad: productosCarrito[id].cantidad + 1 } : { nombre, precio, cantidad: 1 };
+            actualizarCarrito();
+        });
+    });
 
-      const botonAumentar = crearBoton('btn-aumentar', '+', () => {
-        productosCarrito[id].cantidad += 1;
+    function actualizarCarrito() {
+        carrito.innerHTML = '';
+        let total = 0;
+        for (const id in productosCarrito) {
+            const { nombre, precio, cantidad } = productosCarrito[id];
+            const nuevoLi = document.createElement('li');
+            nuevoLi.innerHTML = `${nombre} - $${precio} x ${cantidad}`;
+            const botonAumentar = crearBoton('btn-aumentar', '+', () => {
+                productosCarrito[id].cantidad += 1;
+                actualizarCarrito();
+            });
+            const botonDisminuir = crearBoton('btn-disminuir', '-', () => {
+                productosCarrito[id].cantidad > 1 ? productosCarrito[id].cantidad -= 1 : delete productosCarrito[id];
+                actualizarCarrito();
+            });
+            const botonEliminar = crearBoton('btn-eliminar', 'Eliminar', () => eliminarProducto(id));
+            [botonAumentar, botonDisminuir, botonEliminar].forEach(boton => nuevoLi.appendChild(boton));
+            carrito.appendChild(nuevoLi);
+            total += precio * cantidad;
+        }
+        const totalConImpuesto = total + (total * 0.16);
+        totalCarrito.textContent = total ? `Total: $${totalConImpuesto.toFixed(2)}` : '';
+        actualizarContadorCarrito();
+        if (!Object.keys(productosCarrito).length) {
+            carrito.innerHTML = '<li>No hay productos en el carrito</li>';
+        }
+    }
+
+    function crearBoton(clase, texto, evento) {
+        const boton = document.createElement('button');
+        boton.textContent = texto;
+        boton.classList.add(clase);
+        boton.addEventListener('click', evento);
+        return boton;
+    }
+
+    function actualizarContadorCarrito() {
+        const cantidadArticulos = Object.keys(productosCarrito).length;
+        contadorProductos.textContent = cantidadArticulos;
+        contadorProductos.style.display = cantidadArticulos ? 'block' : 'none';
+    }
+
+    function eliminarProducto(id) {
+        delete productosCarrito[id];
         actualizarCarrito();
-      });
+    }
 
-      const botonDisminuir = crearBoton('btn-disminuir', '-', () => {
-        productosCarrito[id].cantidad > 1 ? productosCarrito[id].cantidad -= 1 : delete productosCarrito[id];
+    btnComprar.addEventListener('click', () => {
+        if (Object.keys(productosCarrito).length) {
+            mostrarVentanaConfirmacion();
+            carteleraCarrito.style.display = 'none';
+        } else {
+            alert('No hay productos en el carrito');
+        }
+    });
+
+    function mostrarVentanaConfirmacion() {
+        const listaConfirmacion = document.getElementById('listaConfirmacion');
+        listaConfirmacion.innerHTML = '';
+        let totalConfirmado = 0;
+        for (const id in productosCarrito) {
+            const { nombre, precio, cantidad } = productosCarrito[id];
+            const li = document.createElement('li');
+            li.textContent = `${nombre} - $${precio} x ${cantidad}`;
+            listaConfirmacion.appendChild(li);
+            totalConfirmado += precio * cantidad;
+        }
+        document.getElementById('totalConfirmacion').textContent = `Total: $${(totalConfirmado * 1.16).toFixed(2)}`;
+        ventanaConfirmacion.style.display = 'block';
+    }
+
+    document.getElementById('btnConfirmar').addEventListener('click', () => {
+        ventanaConfirmacion.style.display = 'none';
+        ventanaFormulario.style.display = 'block';
+    });
+
+    document.getElementById('btnCancelar').addEventListener('click', () => {
+        ventanaConfirmacion.style.display = 'none';
+    });
+
+    btnConfirmarCompra.addEventListener('click', () => {
+        if (!validarFormulario()) return;
+        ventanaFormulario.style.display = 'none';
+        ventanaCompra.style.display = 'block';
+        vaciarCarrito();
+        limpiarFormulario();
+    });
+
+    cerrarFormulario.addEventListener('click', () => {
+        ventanaFormulario.style.display = 'none';
+        limpiarFormulario();
+    });
+
+    cerrarVentana.addEventListener('click', () => {
+        ventanaCompra.style.display = 'none';
+    });
+
+    function limpiarFormulario() {
+        nombreInput.value = '';
+        domicilioInput.value = '';
+        tarjetaInput.value = '';
+        correoInput.value = '';
+    }
+
+    function vaciarCarrito() {
+        Object.keys(productosCarrito).forEach(id => delete productosCarrito[id]);
         actualizarCarrito();
-      });
-
-      const botonEliminar = crearBoton('btn-eliminar', 'Eliminar', () => eliminarProducto(id));
-
-      [botonAumentar, botonDisminuir, botonEliminar].forEach(boton => nuevoLi.appendChild(boton));
-      carrito.appendChild(nuevoLi);
-      total += precio * cantidad;
     }
-    totalCarrito.textContent = total ? `Total: $${total.toFixed(2)}` : '';
-    actualizarContadorCarrito();
-    if (!Object.keys(productosCarrito).length) {
-      carrito.innerHTML = '<li>No hay productos en el carrito</li>';
-    }
+
+    function validarFormulario() {
+      const nombre = nombreInput.value.trim();
+      const domicilio = domicilioInput.value.trim();
+      const tarjeta = tarjetaInput.value.trim();
+      const correo = correoInput.value.trim();
+      const correoRegex = /^[a-zA-Z0-9._%+-]+@(hotmail\.com|gmail\.com|yahoo\.com|outlook\.com)$/;
+  
+      if (!nombre || !domicilio || tarjeta.length !== 16 || !correoRegex.test(correo)) {
+          alert('Por favor completa todos los campos correctamente.');
+          return false;
+      }
+      return true;
   }
-
-  function crearBoton(clase, texto, evento) {
-    const boton = document.createElement('button');
-    boton.textContent = texto;
-    boton.classList.add(clase);
-    boton.addEventListener('click', evento);
-    return boton;
-  }
-
-  function actualizarContadorCarrito() {
-    const cantidadArticulos = Object.keys(productosCarrito).length;
-    contadorProductos.textContent = cantidadArticulos;
-    contadorProductos.style.display = cantidadArticulos ? 'block' : 'none';
-  }
-
-  function eliminarProducto(id) {
-    delete productosCarrito[id];
-    actualizarCarrito();
-  }
-
-  btnComprar.addEventListener('click', () => {
-    if (Object.keys(productosCarrito).length) {
-      ventanaFormulario.style.display = 'block';
-      carteleraCarrito.style.display = 'none';
-    } else {
-      alert('No hay productos en el carrito');
-    }
-  });
-
-  btnConfirmarCompra.addEventListener('click', () => {
-    if (!validarFormulario()) return;
-    ventanaFormulario.style.display = 'none';
-    ventanaCompra.style.display = 'block';
-    vaciarCarrito();
-    limpiarFormulario();
-  });
-
-  cerrarFormulario.addEventListener('click', () => {
-    ventanaFormulario.style.display = 'none';
-    limpiarFormulario();
-  });
-
-  cerrarVentana.addEventListener('click', () => {
-    ventanaCompra.style.display = 'none';
-  });
-
-  function limpiarFormulario() {
-    nombreInput.value = '';
-    domicilioInput.value = '';
-    tarjetaInput.value = '';
-    correoInput.value = '';
-  }
-
-  function vaciarCarrito() {
-    Object.keys(productosCarrito).forEach(id => delete productosCarrito[id]);
-    actualizarCarrito();
-  }
-
-  function validarFormulario() {
-    const nombre = nombreInput.value.trim();
-    const domicilio = domicilioInput.value.trim();
-    const tarjeta = tarjetaInput.value.trim();
-    const correo = correoInput.value.trim();
-    if (!nombre || !domicilio || tarjeta.length !== 16 || !correo.includes('@')) {
-      alert('Por favor completa todos los campos correctamente.');
-      return false;
-    }
-    return true;
-  }
+  
 });
