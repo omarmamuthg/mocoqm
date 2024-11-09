@@ -150,6 +150,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function actualizarCarrito() {
         carrito.innerHTML = '';
         let total = 0;
+        const desgloseDiv = document.createElement('div');
+        desgloseDiv.classList.add('desglose');
         for (const id in productosCarrito) {
             const { nombre, precio, cantidad } = productosCarrito[id];
             const nuevoLi = document.createElement('li');
@@ -167,6 +169,19 @@ document.addEventListener('DOMContentLoaded', () => {
             carrito.appendChild(nuevoLi);
             total += precio * cantidad;
         }
+        carrito.appendChild(desgloseDiv);
+        const iva = total * 0.16;
+        const totalConIva = total + iva;
+
+        desgloseDiv.innerHTML = `
+        <p>Subtotal: $${total.toFixed(2)}</p>
+        <p>IVA (16%): $${iva.toFixed(2)}</p>
+    `;
+
+        const totalCarrito = document.createElement('p');
+        totalCarrito.textContent = `Total con IVA: $${totalConIva.toFixed(2)}`;
+        carrito.appendChild(totalCarrito);
+
         const totalConImpuesto = total + (total * 0.16);
         totalCarrito.textContent = total ? `Total: $${totalConImpuesto.toFixed(2)}` : '';
         actualizarContadorCarrito();
