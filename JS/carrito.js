@@ -1,3 +1,5 @@
+const productosCarrito = {};
+
 const style = document.createElement('style');
 style.textContent = `
     .btn-aumentar, .btn-disminuir, .btn-eliminar {
@@ -115,7 +117,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const contadorProductos = document.createElement('span');
     contadorProductos.id = 'contadorProductos';
     iconoCarrito.appendChild(contadorProductos);
-    const productosCarrito = {};
+
+    // Variables para almacenar los datos del cliente (Para boton de confirmar compra)
+    let nombreCliente = '';
+    let domicilioCliente = '';
+    let tarjetaCliente = '';
+    let correoCliente = '';
+
+
 
     ventanaConfirmacion.classList.add('ventanaConfirmacion');
     ventanaConfirmacion.innerHTML = `
@@ -137,15 +146,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    botonesAgregar.forEach(boton => {
-        boton.addEventListener('click', () => {
-            const id = boton.getAttribute('data-id');
-            const nombre = boton.getAttribute('data-nombre');
-            const precio = parseFloat(boton.getAttribute('data-precio'));
-            productosCarrito[id] = productosCarrito[id] ? { ...productosCarrito[id], cantidad: productosCarrito[id].cantidad + 1 } : { nombre, precio, cantidad: 1 };
-            actualizarCarrito();
-        });
-    });
+    function agregarProductoAlCarrito(boton) {
+    const id = boton.getAttribute('data-id');
+    const nombre = boton.getAttribute('data-nombre');
+    const precio = parseFloat(boton.getAttribute('data-precio'));
+
+    productosCarrito[id] = productosCarrito[id] 
+        ? { ...productosCarrito[id], cantidad: productosCarrito[id].cantidad + 1 } 
+        : { nombre, precio, cantidad: 1 };
+
+    actualizarCarrito();
+}
+
+botonesAgregar.forEach(boton => {
+    boton.addEventListener('click', () => agregarProductoAlCarrito(boton));
+});
 
     function actualizarCarrito() {
         carrito.innerHTML = '';
@@ -243,6 +258,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     btnConfirmarCompra.addEventListener('click', () => {
+
+        nombreCliente = document.getElementById('nombre').value;
+    domicilioCliente = document.getElementById('domicilio').value;
+    tarjetaCliente = document.getElementById('tarjeta').value;
+    correoCliente = document.getElementById('correo').value;
+
         if (!validarFormulario()) return;
         ventanaFormulario.style.display = 'none';
         ventanaCompra.style.display = 'block';
@@ -284,5 +305,5 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       return true;
   }
-  
+
 });
