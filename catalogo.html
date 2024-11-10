@@ -89,24 +89,18 @@
 
     <script src="https://unpkg.com/jspdf-invoice-template@1.4.0/dist/index.js"></script>
     <script>
+        // Función para generar factura dinámica
         function generarFactura() {
             const carritoItems = obtenerProductosDelCarrito();
             const datosCliente = obtenerDatosCliente();
-
-            const itemsTabla = Object.keys(carritoItems).map((id, index) => {
-                const producto = carritoItems[id];
-                return [
-                    index + 1,                     // Número de línea
-                    producto.nombre,               // Nombre del producto
-                    producto.cantidad,             // Cantidad
-                    producto.precio.toFixed(2),    // Precio unitario
-                    (producto.cantidad * producto.precio).toFixed(2) // Total por producto
-                ];
-            });
-
-            const subtotal = calcularTotal(carritoItems);
-            const iva = subtotal * 0.16;
-            const totalConIva = subtotal + iva;
+            console.log(datosCliente);
+            const itemsTabla = carritoItems.map((producto, index) => ([
+                index + 1,
+                producto.nombre,        // Nombre del producto
+                producto.cantidad,      // Cantidad
+                producto.precio,        // Precio unitario
+                producto.cantidad * producto.precio // Total por producto
+            ]));
 
             const props = {
                 outputType: jsPDFInvoiceTemplate.OutputType.Save,
@@ -138,23 +132,11 @@
                         { title: "Total" },
                     ],
                     table: itemsTabla,
-                    additionalRows: [
-                        {
-                            col1: 'Subtotal:',
-                            col2: `$${subtotal.toFixed(2)}`,
-                            col3: '',
-                        },
-                        {
-                            col1: 'IVA (16%):',
-                            col2: `$${iva.toFixed(2)}`,
-                            col3: '',
-                        },
-                        {
-                            col1: 'Total a Pagar:',
-                            col2: `$${totalConIva.toFixed(2)}`,
-                            col3: 'USD',
-                        },
-                    ],
+                    additionalRows: [{
+                        col1: 'Total a Pagar:',
+                        col2: calcularTotal(carritoItems).toFixed(2),
+                        col3: 'USD',
+                    }],
                 },
                 footer: {
                     text: "Factura generada automáticamente. Sin firma requerida.",
@@ -171,16 +153,20 @@
             return { nombre: nombreCliente, correo: correoCliente }; 
         }
 
+        // Función para obtener productos del carrito
         function obtenerProductosDelCarrito() {
-            // Retornar los productos actuales del carrito
-            return productosCarrito;
+            const productosCarrito = JSON.parse(localStorage.getItem('productosCarrito')) || {};
+            return Object.keys(productosCarrito).map(key => productosCarrito[key]);
         }
 
-        // Calcula el subtotal de la factura
+        // Calcula el total de la factura
         function calcularTotal(carritoItems) {
-            return Object.values(carritoItems).reduce((total, item) => total + (item.precio * item.cantidad), 0);
-        } 
+            return carritoItems.reduce((total, item) => total + (item.precio * item.cantidad), 0);
+        }
+
+        // Aquí iría el resto de tu código JS para manejar el carrito y formularios...
     </script>
+
 
     
 
