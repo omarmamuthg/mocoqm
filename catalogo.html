@@ -7,8 +7,7 @@
     <link rel="icon" href="imagenes/9a8dd106-887a-44cf-a9aa-a258b2accd94.jpg" type="image/x-icon">
     <link rel="stylesheet" href="css/catalogo.css">
     <link rel="stylesheet" href="css/index.css">
-    <script type="text/javascript" src="JS/carrito.js"></script>
-
+    <script type="text/javascript" src="JS/carrito.js   "></script>
 </head>
 <body>
     <header class="container">
@@ -84,105 +83,107 @@
     <div id="ventanaCompra" style="display: none;">
         <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Check Verde" class="icono-exito">
         <p class="mensaje-exito">¡Compra Exitosa!</p>
-        <button id= "GenerarFactura" class = "boton-generarFactura" onclick="generarFactura(nombreCliente, correoCliente, productosCarrito, total)">Generar Factura</button>
+        <button id= "GenerarFactura" class = "boton-generarFactura" onclick="generarFactura()">Generar Factura</button>
         <button id="cerrarVentana" class="boton-cerrar">Cerrar</button>
     </div>
 
     <script src="https://unpkg.com/jspdf-invoice-template@1.4.0/dist/index.js"></script>
-
     <script>
-
-        // Variables para almacenar los datos del cliente temporalmente
-            let nombreCliente = '';
-            let correoCliente = '';
-            let total = 0;
-
-        document.getElementById('btnConfirmarCompra').addEventListener('click', () => {
-
-            // Obtiene los datos del formulario
-            nombreCliente = document.getElementById('nombre').value;
-            correoCliente = document.getElementById('correo').value;
     
-            // Validación básica de los datos ingresados
-            if (nombreCliente && correoCliente) {
-                // Lógica para mostrar ventana de compra exitosa
-                document.getElementById('ventanaCompra').style.display = 'block';
-                // Calcula el total de la compra
-                total = calcularTotalCarrito();
-            } else {
-                alert('Por favor, completa todos los campos.');
-            }
+    function generarFactura() {
+        const carritoItems = obtenerProductosDelCarrito();
+        const datosCliente = obtenerDatosCliente();
+    
+        const itemsTabla = Object.keys(carritoItems).map((id, index) => {
+            const producto = carritoItems[id];
+            return [
+                index + 1,                     // Número de línea
+                producto.nombre,               // Nombre del producto
+                producto.cantidad,             // Cantidad
+                producto.precio.toFixed(2),    // Precio unitario
+                (producto.cantidad * producto.precio).toFixed(2) // Total por producto
+            ];
         });
     
-        // Función para calcular el total del carrito
-        function calcularTotalCarrito() {
-            return productosCarrito.reduce((acc, producto) => acc + producto.cantidad * producto.precio, 0);
-        }
+        const subtotal = calcularTotal(carritoItems);
+        const iva = subtotal * 0.16;
+        const totalConIva = subtotal + iva;
     
-        // Función generarFactura actualizada para usar los datos del cliente y total
-        function generarFactura(nombreCliente, correoCliente, productosCarrito, total) {
-            const props = {
-                outputType: jsPDFInvoiceTemplate.OutputType.Save,
-                returnJsPDFDocObject: true,
-                fileName: "Factura",
-                orientationLandscape: false,
-                compress: true,
-                logo: {
-                    src: "imagenes/mocoQM_Logo3.2.png",
-                    type: 'PNG',
-                    width: 53.33,
-                    height: 26.66,
-                },
-                business: {
-                    name: "MocoQM",
-                    address: "Calle 145 # 145-45",
-                    phone: "812-472-4491",
-                    email: "MocoQM@example.com",
-                    website: "https://omarmamuthg.github.io/mocoqm/",
-                },
-                contact: {
-                    label: "Factura dirigida a:",
-                    name: nombreCliente,
-                    email: correoCliente,
-                },
-                invoice: {
-                    label: "Factura #: ",
-                    num: 19,
-                    invDate: "Fecha de Compra: " + new Date().toLocaleDateString(),
-                    headerBorder: false,
-                    tableBodyBorder: false,
-                    header: [
-                        { title: "Producto", style: { width: 50 } },
-                        { title: "Cantidad", style: { width: 20 } },
-                        { title: "Precio Unitario", style: { width: 30 } },
-                    ],
-                    // Aquí transformamos productosCarrito en un array adecuado
-                    table: Object.values(productosCarrito).map(producto => [
-                        producto.nombre,
-                        producto.cantidad,
-                        `$${producto.precio.toFixed(2)}`
-                    ]),
-                    additionalRows: [
-                        {
-                            col1: 'Total:',
-                            col2: `$${total.toFixed(2)}`,
-                            style: { fontSize: 14 }
-                        }
-                    ],
-                    invDescLabel: "Gracias por su compra",
-                },
-                footer: {
-                    text: "La factura es válida sin firma y sello.",
-                },
-                pageEnable: true,
-                pageLabel: "Página ",
-            };
+        const props = {
+            outputType: jsPDFInvoiceTemplate.OutputType.Save,
+            returnJsPDFDocObject: true,
+            fileName: "Factura",
+            orientationLandscape: false,
+            logo: {
+                src: "imagenes/mocoQM_Logo3.2.png",
+                width: 50,
+                height: 25,
+            },
+            business: {
+                name: "MocoQM",
+                address: "Calle 145 # 145-45",
+                phone: "812-472-4490",
+                email: "MocoQM@example.com",
+            },
+            contact: {
+                label: "Factura para:",
+                name: datosCliente.nombre,
+                email: datosCliente.correo,
+            },
+            invoice: {
+                header: [
+                    { title: "#" },
+                    { title: "Producto" },
+                    { title: "Cantidad" },
+                    { title: "Precio Unitario" },
+                    { title: "Total" },
+                ],
+                table: itemsTabla,
+                additionalRows: [
+                    {
+                        col1: 'Subtotal:',
+                        col2: `$${subtotal.toFixed(2)}`,
+                        col3: '',
+                    },
+                    {
+                        col1: 'IVA (16%):',
+                        col2: `$${iva.toFixed(2)}`,
+                        col3: '',
+                    },
+                    {
+                        col1: 'Total a Pagar:',
+                        col2: `$${totalConIva.toFixed(2)}`,
+                        col3: 'USD',
+                    },
+                ],
+            },
+            footer: {
+                text: "Factura generada automáticamente. Sin firma requerida.",
+            },
+        };
     
-            // Genera el PDF
-            const pdfObject = jsPDFInvoiceTemplate.default(props);
-            console.log("PDF generado:", pdfObject);
-        }
+        var pdfObject = jsPDFInvoiceTemplate.default(props);
+        console.log("PDF generado exitosamente: ", pdfObject);
+    }
+    
+    function obtenerDatosCliente() { 
+        const nombreCliente = document.getElementById('nombre').value; 
+        const correoCliente = document.getElementById('correo').value; 
+        return { nombre: nombreCliente, correo: correoCliente }; 
+    }
+    
+    function obtenerProductosDelCarrito() {
+        // Retornar los productos actuales del carrito
+        return productosCarrito;
+    }
+    
+    // Calcula el subtotal de la factura
+    function calcularTotal(carritoItems) {
+        return Object.values(carritoItems).reduce((total, item) => total + (item.precio * item.cantidad), 0);
+    }
     </script>
+    
+
 
     <div id="ventanaFormulario" class="ventanaFormulario">
         <h3 id = "DatosCompra" >Datos de compra</h3>
@@ -372,7 +373,6 @@
         </section>
         <section class="container_copyright">
             <p id="letras_copyright">© 2021 MocoQM. Todos los derechos reservados.</p>
-            <p>Hola omar</p>
         </section>
     </footer>
 </body>
