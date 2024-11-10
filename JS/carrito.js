@@ -1,3 +1,4 @@
+
 const productosCarrito = {};
 
 const style = document.createElement('style');
