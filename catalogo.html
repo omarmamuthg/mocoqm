@@ -89,99 +89,99 @@
 
     <script src="https://unpkg.com/jspdf-invoice-template@1.4.0/dist/index.js"></script>
     <script>
-    
-    function generarFactura() {
-        const carritoItems = obtenerProductosDelCarrito();
-        const datosCliente = obtenerDatosCliente();
-    
-        const itemsTabla = Object.keys(carritoItems).map((id, index) => {
-            const producto = carritoItems[id];
-            return [
-                index + 1,                     // Número de línea
-                producto.nombre,               // Nombre del producto
-                producto.cantidad,             // Cantidad
-                producto.precio.toFixed(2),    // Precio unitario
-                (producto.cantidad * producto.precio).toFixed(2) // Total por producto
-            ];
-        });
-    
-        const subtotal = calcularTotal(carritoItems);
-        const iva = subtotal * 0.16;
-        const totalConIva = subtotal + iva;
-    
-        const props = {
-            outputType: jsPDFInvoiceTemplate.OutputType.Save,
-            returnJsPDFDocObject: true,
-            fileName: "Factura",
-            orientationLandscape: false,
-            logo: {
-                src: "imagenes/mocoQM_Logo3.2.png",
-                width: 50,
-                height: 25,
-            },
-            business: {
-                name: "MocoQM",
-                address: "Calle 145 # 145-45",
-                phone: "812-472-4490",
-                email: "MocoQM@example.com",
-            },
-            contact: {
-                label: "Factura para:",
-                name: datosCliente.nombre,
-                email: datosCliente.correo,
-            },
-            invoice: {
-                header: [
-                    { title: "#" },
-                    { title: "Producto" },
-                    { title: "Cantidad" },
-                    { title: "Precio Unitario" },
-                    { title: "Total" },
-                ],
-                table: itemsTabla,
-                additionalRows: [
-                    {
-                        col1: 'Subtotal:',
-                        col2: `$${subtotal.toFixed(2)}`,
-                        col3: '',
-                    },
-                    {
-                        col1: 'IVA (16%):',
-                        col2: `$${iva.toFixed(2)}`,
-                        col3: '',
-                    },
-                    {
-                        col1: 'Total a Pagar:',
-                        col2: `$${totalConIva.toFixed(2)}`,
-                        col3: 'USD',
-                    },
-                ],
-            },
-            footer: {
-                text: "Factura generada automáticamente. Sin firma requerida.",
-            },
-        };
-    
-        var pdfObject = jsPDFInvoiceTemplate.default(props);
-        console.log("PDF generado exitosamente: ", pdfObject);
-    }
-    
-    function obtenerDatosCliente() { 
-        const nombreCliente = document.getElementById('nombre').value; 
-        const correoCliente = document.getElementById('correo').value; 
-        return { nombre: nombreCliente, correo: correoCliente }; 
-    }
-    
-    function obtenerProductosDelCarrito() {
-        // Retornar los productos actuales del carrito
-        return productosCarrito;
-    }
-    
-    // Calcula el subtotal de la factura
-    function calcularTotal(carritoItems) {
-        return Object.values(carritoItems).reduce((total, item) => total + (item.precio * item.cantidad), 0);
-    }
+        function generarFactura() {
+            const carritoItems = obtenerProductosDelCarrito();
+            const datosCliente = obtenerDatosCliente();
+
+            const itemsTabla = Object.keys(carritoItems).map((id, index) => {
+                const producto = carritoItems[id];
+                return [
+                    index + 1,                     // Número de línea
+                    producto.nombre,               // Nombre del producto
+                    producto.cantidad,             // Cantidad
+                    producto.precio.toFixed(2),    // Precio unitario
+                    (producto.cantidad * producto.precio).toFixed(2) // Total por producto
+                ];
+            });
+
+            const subtotal = calcularTotal(carritoItems);
+            const iva = subtotal * 0.16;
+            const totalConIva = subtotal + iva;
+
+            const props = {
+                outputType: jsPDFInvoiceTemplate.OutputType.Save,
+                returnJsPDFDocObject: true,
+                fileName: "Factura",
+                orientationLandscape: false,
+                logo: {
+                    src: "imagenes/mocoQM_Logo3.2.png",
+                    width: 50,
+                    height: 25,
+                },
+                business: {
+                    name: "MocoQM",
+                    address: "Calle 145 # 145-45",
+                    phone: "812-472-4490",
+                    email: "MocoQM@example.com",
+                },
+                contact: {
+                    label: "Factura para:",
+                    name: datosCliente.nombre,
+                    email: datosCliente.correo,
+                },
+                invoice: {
+                    header: [
+                        { title: "#" },
+                        { title: "Producto" },
+                        { title: "Cantidad" },
+                        { title: "Precio Unitario" },
+                        { title: "Total" },
+                    ],
+                    table: itemsTabla,
+                    additionalRows: [
+                        {
+                            col1: 'Subtotal:',
+                            col2: `$${subtotal.toFixed(2)}`,
+                            col3: '',
+                        },
+                        {
+                            col1: 'IVA (16%):',
+                            col2: `$${iva.toFixed(2)}`,
+                            col3: '',
+                        },
+                        {
+                            col1: 'Total a Pagar:',
+                            col2: `$${totalConIva.toFixed(2)}`,
+                            col3: 'USD',
+                        },
+                    ],
+                },
+                footer: {
+                    text: "Factura generada automáticamente. Sin firma requerida.",
+                },
+            };
+
+            var pdfObject = jsPDFInvoiceTemplate.default(props);
+            console.log("PDF generado exitosamente: ", pdfObject);
+        }
+
+        function obtenerDatosCliente() { 
+            const nombreCliente = document.getElementById('nombre').value; 
+            const correoCliente = document.getElementById('correo').value; 
+            return { nombre: nombreCliente, correo: correoCliente }; 
+        }
+
+        function obtenerProductosDelCarrito() {
+            // Retornar los productos actuales del carrito
+            return productosCarrito;
+        }
+
+        // Calcula el subtotal de la factura
+        function calcularTotal(carritoItems) {
+            return Object.values(carritoItems).reduce((total, item) => total + (item.precio * item.cantidad), 0);
+        } 
     </script>
+
     
 
 
