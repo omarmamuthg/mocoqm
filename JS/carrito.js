@@ -146,6 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
             returnJsPDFDocObject: true,
             fileName: "Factura",
             orientationLandscape: false,
+            compress: true,
             logo: {
                 src: "imagenes/mocoQM_Logo3.2.png",
                 width: 50,
@@ -153,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             business: {
                 name: "MocoQM",
-                address: "Calle 145 # 145-45",
+                address: "Ciudad Universitaria SN, San Nicolás de los Garza, NL",
                 phone: "812-472-4490",
                 email: "MocoQM@example.com",
             },
@@ -164,35 +165,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 label: "Factura #: ",
                 num: 19,
                 invDate: "Fecha de generación: " + new Date().toLocaleDateString(),
-                headerBorder: false,
-                tableBodyBorder: false,
-                header: [
-                    { title: "#" },
-                    { title: "Producto" },
-                    { title: "Cantidad" },
-                    { title: "Precio Unitario" },
-                    { title: "Total" },
-                    {title: "Moneda" }
-                ],
-            table: itemsTabla,
-            additionalRows: [{
-                col1: "Total (IVA): ",
-                col2: calcularTotal(carritoItems),
-                col3: "MXN"
-            }],
-            invDescLabel: "Nota:",
-            invDesc: "Gracias por su compra. Esta factura es un comprobante de la transacción realizada. Por favor, conserve este documento para cualquier referencia futura. Si tiene preguntas sobre su compra o necesita asistencia adicional, no dude en contactarnos.",
+                header: [{ title: "#" }, { title: "Producto" }, { title: "Cantidad" }, { title: "Precio Unitario" }, { title: "Total" }, { title: "Moneda" }],
+                table: itemsTabla,
+                additionalRows: [{
+                    col1: "Total (IVA):",
+                    col2: `${calcularTotal(carritoItems).toFixed(2)} MXN`,  // Asegurarse que el valor esté en formato de texto
+                    style: { fontSize: 12 }  // Opcional: ajustar el estilo
+                }],
+                invDescLabel: "Nota:",
+                invDesc: "Gracias por su compra. Esta factura es un comprobante de la transacción realizada. Por favor, conserve este documento para cualquier referencia futura. Si tiene preguntas sobre su compra o necesita asistencia adicional, no dude en contactarnos.",
             },
             footer: {
                 text: "Factura generada automáticamente. Sin firma requerida.",
             },
             pageEnable: true,
-            pageLabel: "Page ",
+            pageLabel: "Pagina ",
         };
         console.log(props)
         var pdfObject = jsPDFInvoiceTemplate.default(props);
         console.log("PDF generado exitosamente: ", pdfObject);
-    }
+    };
     
     function obtenerDatosCliente() { 
         const nombreCliente = document.getElementById('nombre').value; 
@@ -213,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 precio: producto.precio
             };
         });
-    }
+    };
     
     // Calcula el total de la factura
     function calcularTotal(carritoItems) {
