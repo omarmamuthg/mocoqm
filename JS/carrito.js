@@ -168,9 +168,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 header: [{ title: "#" }, { title: "Producto" }, { title: "Cantidad" }, { title: "Precio Unitario" }, { title: "Total" }, { title: "Moneda" }],
                 table: itemsTabla,
                 additionalRows: [{
-                    col1: "Total (IVA):",
-                    col2: `${calcularTotal(carritoItems).toFixed(2)} MXN`,  // Asegurarse que el valor esté en formato de texto
-                    style: { fontSize: 12 }  // Opcional: ajustar el estilo
+                    col1: "Subtotal:",
+                    col2: `${calcularSubTotal(carritoItems).toFixed(2)} MXN`,
+                    style: { fontSize: 14 }  
+                },
+                {
+                    col1: "IVA:",
+                    col2: "16%",
+                    style: { fontSize: 14 }  
+                },
+                {
+                    col1: "Total (IVA): ",
+                    col2: `${calcularTotal(carritoItems).toFixed(2)} MXN`,
+                    style: { fontSize: 14 } 
                 }],
                 invDescLabel: "Nota:",
                 invDesc: "Gracias por su compra. Esta factura es un comprobante de la transacción realizada. Por favor, conserve este documento para cualquier referencia futura. Si tiene preguntas sobre su compra o necesita asistencia adicional, no dude en contactarnos.",
@@ -208,8 +218,13 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     
     // Calcula el total de la factura
-    function calcularTotal(carritoItems) {
-        return carritoItems.reduce((total, item) => total + ((item.precio * 1.16) * item.cantidad), 0);
+    function calcularSubTotal(carritoItems) {
+        return carritoItems.reduce((total, item) => total + (item.precio  * item.cantidad), 0);
+    };
+
+     // Calcula el total de la factura con impuesto
+     function calcularTotal(carritoItems) {
+        return carritoItems.reduce((total, item) => total + ((item.precio * 1.16 ) * item.cantidad), 0);
     };
 
     ventanaConfirmacion.classList.add('ventanaConfirmacion');
