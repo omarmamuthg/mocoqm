@@ -116,6 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const tarjetaInput = document.getElementById('tarjeta');
     const correoInput = document.getElementById('correo');
     const contadorProductos = document.createElement('span');
+
     contadorProductos.id = 'contadorProductos';
     iconoCarrito.appendChild(contadorProductos);
 
@@ -125,7 +126,99 @@ document.addEventListener('DOMContentLoaded', () => {
     let tarjetaCliente = '';
     let correoCliente = '';
 
-
+    // Función para generar factura dinámica
+    function generarFactura() {
+        console.log(productosCarrito);
+        const carritoItems = obtenerProductosDelCarrito(productosCarrito);
+        const datosCliente = obtenerDatosCliente();
+        console.log(carritoItems);
+        const itemsTabla = carritoItems.map((producto, index) => [
+            index + 1,  // Número de la fila
+            producto.nombre,  // Nombre del producto
+            producto.cantidad,  // Cantidad
+            producto.precio.toFixed(2),  // Precio unitario (con 2 decimales)
+            (producto.precio * producto.cantidad).toFixed(2),  // Total por producto
+            'MXN'
+        ]);
+    
+        const props = {
+            outputType: jsPDFInvoiceTemplate.OutputType.Save,
+            returnJsPDFDocObject: true,
+            fileName: "Factura",
+            orientationLandscape: false,
+            logo: {
+                src: "imagenes/mocoQM_Logo3.2.png",
+                width: 50,
+                height: 25,
+            },
+            business: {
+                name: "MocoQM",
+                address: "Calle 145 # 145-45",
+                phone: "812-472-4490",
+                email: "MocoQM@example.com",
+            },
+            contact: {
+                label: "Factura de Venta"
+            },
+            invoice: {
+                label: "Factura #: ",
+                num: 19,
+                invDate: "Fecha de generación: " + new Date().toLocaleDateString(),
+                headerBorder: false,
+                tableBodyBorder: false,
+                header: [
+                    { title: "#" },
+                    { title: "Producto" },
+                    { title: "Cantidad" },
+                    { title: "Precio Unitario" },
+                    { title: "Total" },
+                    {title: "Moneda" }
+                ],
+            table: itemsTabla,
+            additionalRows: [{
+                col1: "Total (IVA): ",
+                col2: calcularTotal(carritoItems),
+                col3: "MXN"
+            }],
+            invDescLabel: "Nota:",
+            invDesc: "Gracias por su compra. Esta factura es un comprobante de la transacción realizada. Por favor, conserve este documento para cualquier referencia futura. Si tiene preguntas sobre su compra o necesita asistencia adicional, no dude en contactarnos.",
+            },
+            footer: {
+                text: "Factura generada automáticamente. Sin firma requerida.",
+            },
+            pageEnable: true,
+            pageLabel: "Page ",
+        };
+        console.log(props)
+        var pdfObject = jsPDFInvoiceTemplate.default(props);
+        console.log("PDF generado exitosamente: ", pdfObject);
+    }
+    
+    function obtenerDatosCliente() { 
+        const nombreCliente = document.getElementById('nombre').value; 
+        const correoCliente = document.getElementById('correo').value; 
+        return { nombre: nombreCliente, correo: correoCliente }; 
+    }
+    
+    function obtenerProductosDelCarrito(productosCarrito) {
+        if (Object.keys(productosCarrito).length === 0) {
+            console.log("El carrito está vacío");
+            return [];  // Retorna un array vacío si no hay productos
+        }
+        return Object.keys(productosCarrito).map((nombreProducto) => {
+            const producto = productosCarrito[nombreProducto];
+            return {
+                nombre: producto.nombre,
+                cantidad: producto.cantidad,
+                precio: producto.precio
+            };
+        });
+    }
+    
+    // Calcula el total de la factura
+    function calcularTotal(carritoItems) {
+        return carritoItems.reduce((total, item) => total + ((item.precio * 1.16) * item.cantidad), 0);
+    };
 
     ventanaConfirmacion.classList.add('ventanaConfirmacion');
     ventanaConfirmacion.innerHTML = `
@@ -156,6 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ? { ...productosCarrito[id], cantidad: productosCarrito[id].cantidad + 1 } 
         : { nombre, precio, cantidad: 1 };
 
+    console.log(productosCarrito)
     actualizarCarrito();
 }
 
@@ -261,14 +355,13 @@ botonesAgregar.forEach(boton => {
     btnConfirmarCompra.addEventListener('click', () => {
 
         nombreCliente = document.getElementById('nombre').value;
-    domicilioCliente = document.getElementById('domicilio').value;
-    tarjetaCliente = document.getElementById('tarjeta').value;
-    correoCliente = document.getElementById('correo').value;
+        domicilioCliente = document.getElementById('domicilio').value;
+        tarjetaCliente = document.getElementById('tarjeta').value;
+        correoCliente = document.getElementById('correo').value;
 
         if (!validarFormulario()) return;
         ventanaFormulario.style.display = 'none';
         ventanaCompra.style.display = 'block';
-        vaciarCarrito();
         limpiarFormulario();
     });
 
@@ -279,6 +372,7 @@ botonesAgregar.forEach(boton => {
 
     cerrarVentana.addEventListener('click', () => {
         ventanaCompra.style.display = 'none';
+        vaciarCarrito();
     });
 
     function limpiarFormulario() {
@@ -306,5 +400,15 @@ botonesAgregar.forEach(boton => {
       }
       return true;
   }
+
+  const botonGenerarFactura = document.getElementById("generarFactura");
+    if (botonGenerarFactura) {
+        botonGenerarFactura.addEventListener("click", generarFactura);
+        console.log("Evento click de GenerarFactura configurado");
+    }
+
+    const botonCerrarVentana = document.getElementById("cerrarVentana");
+    if (botonCerrarVentana) {
+        botonCerrarVentana.addEventListener("click", cerrarVentana)};
 
 });
