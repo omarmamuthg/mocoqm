@@ -209,7 +209,7 @@ h3 {
 
 
 /* Video de fondo */
-.video-container {
+/* .video-container {
     position: absolute;
     top: 0;
     left: 0;
@@ -227,7 +227,7 @@ h3 {
     top: 0;
     left: 0;
     z-index: -1;
-}
+} */
 
 /* Footer */
 footer {
@@ -248,8 +248,7 @@ footer {
 
 .fb img:hover,
 .ig img:hover,
-.x img:hover,
-.wpp:hover {
+.x img:hover {
     transform: scale(1.5); /* Aumenta el tamaño al pasar el cursor */
 }
 

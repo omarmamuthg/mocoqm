@@ -1,6 +1,4 @@
-
 const productosCarrito = {};
-
 const style = document.createElement('style');
 style.textContent = `
     .btn-aumentar, .btn-disminuir, .btn-eliminar {
@@ -27,9 +25,6 @@ style.textContent = `
         width: 100%; padding: 10px; margin: 10px 0;
     }
     .ventanaFormulario label { font-weight: bold; display: block; margin-top: 10px; }
-
-
-
 
 
     .btn-aumentar, .btn-disminuir, .btn-eliminar {
@@ -90,12 +85,13 @@ style.textContent = `
     }
     #btnConfirmarCompra:hover {
         background-color: #1e88e5;
-    }
-
-
-    
-
+    }  
 `;
+
+
+
+
+
 document.head.appendChild(style);
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -399,7 +395,10 @@ botonesAgregar.forEach(boton => {
       const domicilio = domicilioInput.value.trim();
       const tarjeta = tarjetaInput.value.trim();
       const correo = correoInput.value.trim();
-      const correoRegex = /^[a-zA-Z0-9._%+-]+@(hotmail\.com|gmail\.com|yahoo\.com|outlook\.com)$/;
+    //const correoRegex = /^[a-zA-Z0-9._%+-]+@(hotmail\.com|gmail\.com|yahoo\.com|outlook\.com)$/;
+      const correoRegex = /^[a-z0-9._%+-]+@(hotmail\.com|gmail\.com|yahoo\.com|outlook\.com)$/i;
+
+      
   
       if (!nombre || !domicilio || tarjeta.length !== 16 || !correoRegex.test(correo)) {
           alert('Por favor completa todos los campos correctamente.');
